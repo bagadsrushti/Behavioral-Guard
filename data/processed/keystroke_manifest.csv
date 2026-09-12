@@ -1,0 +1,16 @@
+session_id,label,npy_path,num_windows
+genuine_000,genuine,data/processed\keystroke_genuine_000.npy,32
+genuine_001,genuine,data/processed\keystroke_genuine_001.npy,32
+genuine_002,genuine,data/processed\keystroke_genuine_002.npy,32
+genuine_003,genuine,data/processed\keystroke_genuine_003.npy,32
+genuine_004,genuine,data/processed\keystroke_genuine_004.npy,32
+genuine_005,genuine,data/processed\keystroke_genuine_005.npy,32
+genuine_006,genuine,data/processed\keystroke_genuine_006.npy,32
+genuine_007,genuine,data/processed\keystroke_genuine_007.npy,32
+genuine_008,genuine,data/processed\keystroke_genuine_008.npy,32
+genuine_009,genuine,data/processed\keystroke_genuine_009.npy,32
+imposter_000,imposter,data/processed\keystroke_imposter_000.npy,32
+imposter_001,imposter,data/processed\keystroke_imposter_001.npy,32
+imposter_002,imposter,data/processed\keystroke_imposter_002.npy,32
+imposter_003,imposter,data/processed\keystroke_imposter_003.npy,32
+imposter_004,imposter,data/processed\keystroke_imposter_004.npy,32

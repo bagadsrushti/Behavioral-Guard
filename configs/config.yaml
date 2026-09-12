@@ -1,0 +1,88 @@
+# =============================================================================
+# Behavioral Guard — Configuration
+# Continuous Authentication via Behavioral Biometrics (Phase 1)
+# =============================================================================
+
+# --------------- Data Paths ---------------
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+  synthetic_data_dir: "data/synthetic"
+  model_checkpoint_dir: "models_checkpoints"
+  results_dir: "results"
+
+# --------------- Data Collection ---------------
+collection:
+  mouse:
+    sampling_rate_hz: 10            # Target Hz for move events
+    output_format: "csv"            # csv or json
+  keystroke:
+    output_format: "csv"
+
+# --------------- Feature Engineering ---------------
+features:
+  mouse:
+    window_size: 50                 # Number of consecutive events per window
+    window_stride: 25              # Overlap stride (events)
+  keystroke:
+    window_size: 30                 # Number of consecutive keystrokes per window
+    window_stride: 15              # Overlap stride (keystrokes)
+
+# --------------- Fusion ---------------
+fusion:
+  time_bucket_seconds: 10          # Seconds per fusion time bucket
+  meta_model: "random_forest"
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+
+# --------------- LSTM-Autoencoder (Mouse) ---------------
+model_mouse:
+  input_dim: 20                    # Number of mouse features per timestep
+  seq_length: 50                   # Must match mouse window_size
+  embedding_dim: 16                # Bottleneck dimension
+  hidden_dim: 64                   # LSTM hidden units
+  num_lstm_layers: 2               # Stacked LSTM depth
+  dropout: 0.1
+  learning_rate: 0.001
+  batch_size: 128
+  epochs: 50
+  optimizer: "adam"
+  threshold_percentile: 95         # Percentile of genuine val errors for threshold
+  checkpoint_file: "mouse_lstm_ae.pt"
+
+# --------------- LSTM-Autoencoder (Keystroke) ---------------
+model_keystroke:
+  input_dim: 6                     # Number of keystroke features per timestep
+  seq_length: 30                   # Must match keystroke window_size
+  embedding_dim: 8                 # Bottleneck dimension
+  hidden_dim: 32                   # LSTM hidden units
+  num_lstm_layers: 2
+  dropout: 0.1
+  learning_rate: 0.001
+  batch_size: 128
+  epochs: 50
+  optimizer: "adam"
+  threshold_percentile: 95
+  checkpoint_file: "keystroke_lstm_ae.pt"
+
+# --------------- Evaluation ---------------
+evaluation:
+  train_ratio: 0.60
+  val_ratio: 0.20
+  test_ratio: 0.20
+
+# --------------- Synthetic Data ---------------
+synthetic:
+  num_genuine_sessions: 10
+  num_imposter_sessions: 5
+  events_per_mouse_session: 2000
+  events_per_keystroke_session: 1000
+  random_seed: 42
+
+# --------------- Logging ---------------
+logging:
+  level: "INFO"                    # DEBUG, INFO, WARNING, ERROR
+  log_file: "results/pipeline.log"
+  format: "%(asctime)s | %(name)-20s | %(levelname)-7s | %(message)s"

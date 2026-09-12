@@ -1,0 +1,155 @@
+"""
+train_keystroke.py — Train the LSTM-Autoencoder on genuine keystroke data (one-class).
+
+Same pattern as train_mouse.py but reads keystroke features and uses
+the model_keystroke config section.
+"""
+
+import logging
+import os
+
+import numpy as np
+import torch
+from torch.utils.data import DataLoader, TensorDataset
+
+from src.models.lstm_ae import (
+    LSTMAutoencoder,
+    reconstruction_mse,
+    save_checkpoint,
+)
+from src.utils.config_loader import load_config
+
+log = logging.getLogger(__name__)
+
+
+def _build_dataloader(
+    arrays: list[np.ndarray], batch_size: int, shuffle: bool = True
+) -> DataLoader:
+    combined = np.concatenate(arrays, axis=0)
+    tensor = torch.tensor(combined, dtype=torch.float32)
+    return DataLoader(TensorDataset(tensor), batch_size=batch_size, shuffle=shuffle)
+
+
+def train_keystroke_model(cfg: dict | None = None) -> dict:
+    """Full training loop for the keystroke LSTM-AE.
+
+    Returns:
+        A dict with: model, threshold, train_losses, val_losses
+    """
+    if cfg is None:
+        cfg = load_config()
+
+    mcfg = cfg["model_keystroke"]
+    eval_cfg = cfg["evaluation"]
+    processed_dir = cfg["paths"]["processed_data_dir"]
+    ckpt_dir = cfg["paths"]["model_checkpoint_dir"]
+    os.makedirs(ckpt_dir, exist_ok=True)
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    log.info("Training keystroke LSTM-AE on device=%s", device)
+
+    # --- Load manifest & collect genuine sessions --------------------------
+    import pandas as pd
+
+    manifest_path = os.path.join(processed_dir, "keystroke_manifest.csv")
+    manifest = pd.read_csv(manifest_path)
+    genuine = manifest[manifest["label"] == "genuine"].reset_index(drop=True)
+
+    if genuine.empty:
+        raise RuntimeError("No genuine keystroke sessions found in manifest.")
+
+    n = len(genuine)
+    n_train = max(1, int(n * eval_cfg["train_ratio"]))
+    n_val = max(1, int(n * eval_cfg["val_ratio"]))
+
+    train_sessions = genuine.iloc[:n_train]
+    val_sessions = genuine.iloc[n_train : n_train + n_val]
+
+    train_arrays = [np.load(p) for p in train_sessions["npy_path"]]
+    val_arrays = [np.load(p) for p in val_sessions["npy_path"]]
+
+    if not train_arrays or all(a.shape[0] == 0 for a in train_arrays):
+        raise RuntimeError("Training set is empty after loading .npy files.")
+
+    train_loader = _build_dataloader(train_arrays, mcfg["batch_size"], shuffle=True)
+    val_combined = np.concatenate(val_arrays, axis=0) if val_arrays else np.empty((0,))
+    val_tensor = torch.tensor(val_combined, dtype=torch.float32).to(device)
+
+    # --- Build model -------------------------------------------------------
+    model = LSTMAutoencoder(
+        input_dim=mcfg["input_dim"],
+        hidden_dim=mcfg["hidden_dim"],
+        embedding_dim=mcfg["embedding_dim"],
+        seq_length=mcfg["seq_length"],
+        num_layers=mcfg["num_lstm_layers"],
+        dropout=mcfg["dropout"],
+    ).to(device)
+
+    optimizer = torch.optim.Adam(model.parameters(), lr=mcfg["learning_rate"])
+    criterion = torch.nn.MSELoss()
+
+    # --- Training loop -----------------------------------------------------
+    train_losses, val_losses = [], []
+
+    for epoch in range(1, mcfg["epochs"] + 1):
+        model.train()
+        epoch_loss = 0.0
+        n_batches = 0
+        for (batch,) in train_loader:
+            batch = batch.to(device)
+            x_hat, _ = model(batch)
+            loss = criterion(x_hat, batch)
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            epoch_loss += loss.item()
+            n_batches += 1
+
+        avg_train = epoch_loss / max(n_batches, 1)
+        train_losses.append(avg_train)
+
+        model.eval()
+        if val_tensor.numel() > 0:
+            with torch.no_grad():
+                v_hat, _ = model(val_tensor)
+                v_loss = criterion(v_hat, val_tensor).item()
+        else:
+            v_loss = float("nan")
+        val_losses.append(v_loss)
+
+        if epoch % 10 == 0 or epoch == 1:
+            log.info(
+                "Keystroke AE  epoch %3d/%d — train_loss=%.6f  val_loss=%.6f",
+                epoch,
+                mcfg["epochs"],
+                avg_train,
+                v_loss,
+            )
+
+    # --- Threshold ---------------------------------------------------------
+    if val_tensor.numel() > 0:
+        errors = reconstruction_mse(model, val_tensor, reduction="per_sample")
+        threshold = float(
+            np.percentile(errors.cpu().numpy(), mcfg["threshold_percentile"])
+        )
+    else:
+        threshold = float("inf")
+        log.warning("No validation data — threshold set to inf.")
+
+    log.info("Keystroke threshold (p%d) = %.6f", mcfg["threshold_percentile"], threshold)
+
+    # --- Save checkpoint ---------------------------------------------------
+    ckpt_path = os.path.join(ckpt_dir, mcfg["checkpoint_file"])
+    save_checkpoint(
+        model,
+        ckpt_path,
+        extra={"threshold": threshold, "train_losses": train_losses},
+    )
+
+    return {
+        "model": model,
+        "threshold": threshold,
+        "train_losses": train_losses,
+        "val_losses": val_losses,
+        "device": device,
+    }
