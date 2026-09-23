@@ -117,12 +117,15 @@ def build_meta_features(
     mouse_model.eval()
     keystroke_model.eval()
 
-    def _errors_for_manifest(manifest_df, model):
+    def _errors_for_manifest(manifest_df, model, scaler=None):
         all_errors = {}
         for npy_path, grp in manifest_df.groupby("npy_path"):
             data = np.load(npy_path)
             if data.shape[0] == 0:
                 continue
+            if scaler is not None:
+                shape = data.shape
+                data = scaler.transform(data.reshape(-1, shape[-1])).reshape(shape)
             tensor = torch.tensor(data, dtype=torch.float32).to(device)
             errs = reconstruction_mse(model, tensor, reduction="per_sample").cpu().numpy()
             for _, row in grp.iterrows():
@@ -131,7 +134,16 @@ def build_meta_features(
                     all_errors[(row["session_id"], row["bucket"], row["window_idx"])] = errs[wi]
         return all_errors
 
-    mouse_errors = _errors_for_manifest(mouse_buckets, mouse_model)
+    ckpt_dir = cfg["paths"]["model_checkpoint_dir"]
+    mouse_scaler_path = os.path.join(ckpt_dir, "mouse_scaler.pkl")
+    if os.path.exists(mouse_scaler_path):
+        with open(mouse_scaler_path, "rb") as f:
+            mouse_scaler = pickle.load(f)
+    else:
+        mouse_scaler = None
+        log.warning("No mouse scaler found at %s", mouse_scaler_path)
+
+    mouse_errors = _errors_for_manifest(mouse_buckets, mouse_model, scaler=mouse_scaler)
     ks_errors = _errors_for_manifest(ks_buckets, keystroke_model)
 
     # Aggregate by (session_id, bucket): take mean error in each bucket

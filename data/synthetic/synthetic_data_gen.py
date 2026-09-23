@@ -54,9 +54,10 @@ def _generate_mouse_session(
         click_prob = 0.03
         dt_mu = 0.1  # ~10 Hz for moves
     else:
-        speed_mu, speed_sigma = 12.0, 6.0  # faster, more erratic
-        click_prob = 0.06
-        dt_mu = 0.08
+        # Made closer to genuine for more realistic ROC overlap (mid-sem presentation)
+        speed_mu, speed_sigma = 7.0, 3.5  
+        click_prob = 0.04
+        dt_mu = 0.09
 
     for _ in range(n_events):
         dt = max(0.01, rng.normal(dt_mu, dt_mu * 0.2))
@@ -135,9 +136,10 @@ def _generate_keystroke_session(
         flight_mu, flight_sigma = 0.15, 0.04
         backspace_rate = 0.05
     else:
-        hold_mu, hold_sigma = 0.07, 0.05
-        flight_mu, flight_sigma = 0.25, 0.10
-        backspace_rate = 0.12
+        # Made closer to genuine for more realistic ROC overlap (mid-sem presentation)
+        hold_mu, hold_sigma = 0.11, 0.04
+        flight_mu, flight_sigma = 0.18, 0.06
+        backspace_rate = 0.07
 
     events_written = 0
     while events_written < n_events:

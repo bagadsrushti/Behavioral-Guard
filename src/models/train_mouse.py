@@ -11,6 +11,8 @@ import os
 import numpy as np
 import torch
 from torch.utils.data import DataLoader, TensorDataset
+from sklearn.preprocessing import StandardScaler
+import pickle
 
 from src.models.lstm_ae import (
     LSTMAutoencoder,
@@ -73,8 +75,31 @@ def train_mouse_model(cfg: dict | None = None) -> dict:
     if not train_arrays or all(a.shape[0] == 0 for a in train_arrays):
         raise RuntimeError("Training set is empty after loading .npy files.")
 
-    train_loader = _build_dataloader(train_arrays, mcfg["batch_size"], shuffle=True)
+    train_combined = np.concatenate(train_arrays, axis=0) if train_arrays else np.empty((0, mcfg["seq_length"], mcfg["input_dim"]))
+    
+    # --- Fit and Apply Scaler ----------------------------------------------
+    scaler = StandardScaler()
+    shape = train_combined.shape
+    if shape[0] > 0:
+        # Reshape to 2D for scaling: (N * seq_length, input_dim)
+        train_flat = train_combined.reshape(-1, shape[-1])
+        train_flat = scaler.fit_transform(train_flat)
+        train_combined = train_flat.reshape(shape)
+        
+    scaler_path = os.path.join(ckpt_dir, "mouse_scaler.pkl")
+    with open(scaler_path, "wb") as f:
+        pickle.dump(scaler, f)
+    log.info("Fitted and saved mouse scaler to %s", scaler_path)
+    
+    train_loader = _build_dataloader([train_combined], mcfg["batch_size"], shuffle=True)
+    
     val_combined = np.concatenate(val_arrays, axis=0) if val_arrays else np.empty((0,))
+    if val_combined.shape[0] > 0:
+        val_shape = val_combined.shape
+        val_flat = val_combined.reshape(-1, val_shape[-1])
+        val_flat = scaler.transform(val_flat)
+        val_combined = val_flat.reshape(val_shape)
+        
     val_tensor = torch.tensor(val_combined, dtype=torch.float32).to(device)
 
     # --- Build model -------------------------------------------------------

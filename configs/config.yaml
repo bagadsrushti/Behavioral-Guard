@@ -31,6 +31,7 @@ features:
 # --------------- Fusion ---------------
 fusion:
   time_bucket_seconds: 10          # Seconds per fusion time bucket
+  imposter_train_ratio: 0.6        # Ratio of imposter sessions to use for training the fusion model
   meta_model: "random_forest"
   random_forest:
     n_estimators: 100
@@ -75,8 +76,8 @@ evaluation:
 
 # --------------- Synthetic Data ---------------
 synthetic:
-  num_genuine_sessions: 10
-  num_imposter_sessions: 5
+  num_genuine_sessions: 30
+  num_imposter_sessions: 15
   events_per_mouse_session: 2000
   events_per_keystroke_session: 1000
   random_seed: 42

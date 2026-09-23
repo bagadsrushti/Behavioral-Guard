@@ -113,19 +113,30 @@ def stage_fuse(cfg: dict) -> None:
         os.path.join(processed_dir, "keystroke_manifest.csv")
     )
 
-    # For fusion training, use train+val genuine + all imposter
+    # For fusion training, use train+val genuine + train imposter
     n_m_genuine = len(mouse_manifest[mouse_manifest["label"] == "genuine"])
     n_k_genuine = len(ks_manifest[ks_manifest["label"] == "genuine"])
     m_train_end = max(1, int(n_m_genuine * (eval_cfg["train_ratio"] + eval_cfg["val_ratio"])))
     k_train_end = max(1, int(n_k_genuine * (eval_cfg["train_ratio"] + eval_cfg["val_ratio"])))
 
+    imposter_train_ratio = cfg.get("fusion", {}).get("imposter_train_ratio", 0.6)
+    all_imp_sessions = mouse_manifest[mouse_manifest["label"] == "imposter"]["session_id"].unique()
+    n_imp = len(all_imp_sessions)
+    imp_train_end = max(1, int(n_imp * imposter_train_ratio))
+    train_imp_sessions = all_imp_sessions[:imp_train_end]
+
+    import json
+    with open(os.path.join(processed_dir, "fusion_train_imp_sessions.json"), "w") as f:
+        json.dump(list(train_imp_sessions), f)
+    log.info("Saved %d imposter sessions for fusion training.", len(train_imp_sessions))
+
     train_mouse = pd.concat([
         mouse_manifest[mouse_manifest["label"] == "genuine"].iloc[:m_train_end],
-        mouse_manifest[mouse_manifest["label"] == "imposter"],
+        mouse_manifest[mouse_manifest["session_id"].isin(train_imp_sessions)],
     ])
     train_ks = pd.concat([
         ks_manifest[ks_manifest["label"] == "genuine"].iloc[:k_train_end],
-        ks_manifest[ks_manifest["label"] == "imposter"],
+        ks_manifest[ks_manifest["session_id"].isin(train_imp_sessions)],
     ])
 
     X_meta, y_meta, info_df = build_meta_features(

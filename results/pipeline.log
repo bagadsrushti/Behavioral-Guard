@@ -565,3 +565,1040 @@ Fused (RF)           0.0000   0.0000   0.0000   1.0000
 --------------------------------------------------------
 2026-09-08 09:22:14,438 | src.evaluation.evaluate | INFO    | Results table saved → results\evaluation_results.txt
 2026-09-08 09:22:14,442 | __main__             | INFO    | Pipeline complete.
+2026-09-17 12:09:03,336 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=all
+2026-09-17 12:09:03,340 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:03,340 | __main__             | INFO    | STAGE: Synthetic Data Generation
+2026-09-17 12:09:03,340 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:03,634 | data.synthetic.synthetic_data_gen | INFO    | Generated 15 synthetic mouse sessions → data/raw
+2026-09-17 12:09:03,725 | data.synthetic.synthetic_data_gen | INFO    | Generated 15 synthetic keystroke sessions → data/raw
+2026-09-17 12:09:03,726 | data.synthetic.synthetic_data_gen | INFO    | All synthetic data generation complete.
+2026-09-17 12:09:03,731 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:03,731 | __main__             | INFO    | STAGE: Feature Engineering
+2026-09-17 12:09:03,731 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:03,731 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_000.csv
+2026-09-17 12:09:03,764 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_000, events=2051, windows=81
+2026-09-17 12:09:03,765 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_001.csv
+2026-09-17 12:09:03,781 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_001, events=2069, windows=81
+2026-09-17 12:09:03,781 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_002.csv
+2026-09-17 12:09:03,805 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_002, events=2061, windows=81
+2026-09-17 12:09:03,806 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_003.csv
+2026-09-17 12:09:03,829 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_003, events=2060, windows=81
+2026-09-17 12:09:03,830 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_004.csv
+2026-09-17 12:09:03,853 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_004, events=2047, windows=80
+2026-09-17 12:09:03,854 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_005.csv
+2026-09-17 12:09:03,882 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_005, events=2066, windows=81
+2026-09-17 12:09:03,882 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_006.csv
+2026-09-17 12:09:03,908 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_006, events=2063, windows=81
+2026-09-17 12:09:03,909 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_007.csv
+2026-09-17 12:09:03,939 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_007, events=2046, windows=80
+2026-09-17 12:09:03,939 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_008.csv
+2026-09-17 12:09:03,973 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_008, events=2072, windows=81
+2026-09-17 12:09:03,974 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_009.csv
+2026-09-17 12:09:04,011 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_009, events=2061, windows=81
+2026-09-17 12:09:04,012 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_000.csv
+2026-09-17 12:09:04,058 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_000, events=2141, windows=84
+2026-09-17 12:09:04,059 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_001.csv
+2026-09-17 12:09:04,079 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_001, events=2115, windows=83
+2026-09-17 12:09:04,079 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_002.csv
+2026-09-17 12:09:04,118 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_002, events=2106, windows=83
+2026-09-17 12:09:04,119 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_003.csv
+2026-09-17 12:09:04,139 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_003, events=2104, windows=83
+2026-09-17 12:09:04,140 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_004.csv
+2026-09-17 12:09:04,188 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_004, events=2127, windows=84
+2026-09-17 12:09:04,192 | src.features.mouse_features | INFO    | Mouse feature extraction complete — 15 sessions processed.
+2026-09-17 12:09:04,192 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_000.csv
+2026-09-17 12:09:04,226 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_000, events=1000, windows=32
+2026-09-17 12:09:04,227 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_001.csv
+2026-09-17 12:09:04,264 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_001, events=1000, windows=32
+2026-09-17 12:09:04,264 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_002.csv
+2026-09-17 12:09:04,296 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_002, events=1000, windows=32
+2026-09-17 12:09:04,296 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_003.csv
+2026-09-17 12:09:04,329 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_003, events=1000, windows=32
+2026-09-17 12:09:04,330 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_004.csv
+2026-09-17 12:09:04,360 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_004, events=1000, windows=32
+2026-09-17 12:09:04,360 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_005.csv
+2026-09-17 12:09:04,396 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_005, events=1000, windows=32
+2026-09-17 12:09:04,396 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_006.csv
+2026-09-17 12:09:04,436 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_006, events=1000, windows=32
+2026-09-17 12:09:04,437 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_007.csv
+2026-09-17 12:09:04,477 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_007, events=1000, windows=32
+2026-09-17 12:09:04,477 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_008.csv
+2026-09-17 12:09:04,519 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_008, events=1000, windows=32
+2026-09-17 12:09:04,520 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_009.csv
+2026-09-17 12:09:04,554 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_009, events=1000, windows=32
+2026-09-17 12:09:04,555 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_000.csv
+2026-09-17 12:09:04,600 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_000, events=1000, windows=32
+2026-09-17 12:09:04,600 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_001.csv
+2026-09-17 12:09:04,651 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_001, events=1000, windows=32
+2026-09-17 12:09:04,652 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_002.csv
+2026-09-17 12:09:04,704 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_002, events=1000, windows=32
+2026-09-17 12:09:04,705 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_003.csv
+2026-09-17 12:09:04,761 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_003, events=1000, windows=32
+2026-09-17 12:09:04,762 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_004.csv
+2026-09-17 12:09:04,809 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_004, events=1000, windows=32
+2026-09-17 12:09:04,810 | src.features.keystroke_features | INFO    | Keystroke feature extraction complete — 15 sessions processed.
+2026-09-17 12:09:04,817 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:04,817 | __main__             | INFO    | STAGE: Model Training
+2026-09-17 12:09:04,817 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:04,817 | src.models.train_mouse | INFO    | Training mouse LSTM-AE on device=cpu
+2026-09-17 12:09:06,953 | src.models.train_mouse | INFO    | Mouse AE  epoch   1/50 — train_loss=36646351.000000  val_loss=20723030.000000
+2026-09-17 12:09:10,800 | src.models.train_mouse | INFO    | Mouse AE  epoch  10/50 — train_loss=34867608.000000  val_loss=20722272.000000
+2026-09-17 12:09:15,295 | src.models.train_mouse | INFO    | Mouse AE  epoch  20/50 — train_loss=38357207.000000  val_loss=20721642.000000
+2026-09-17 12:09:19,554 | src.models.train_mouse | INFO    | Mouse AE  epoch  30/50 — train_loss=36720837.000000  val_loss=20721102.000000
+2026-09-17 12:09:23,842 | src.models.train_mouse | INFO    | Mouse AE  epoch  40/50 — train_loss=34953453.000000  val_loss=20720594.000000
+2026-09-17 12:09:28,122 | src.models.train_mouse | INFO    | Mouse AE  epoch  50/50 — train_loss=35036514.500000  val_loss=20720100.000000
+2026-09-17 12:09:28,139 | src.models.train_mouse | INFO    | Mouse threshold (p95) = 34753876.000000
+2026-09-17 12:09:28,155 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:09:28,158 | src.models.train_keystroke | INFO    | Training keystroke LSTM-AE on device=cpu
+2026-09-17 12:09:28,311 | src.models.train_keystroke | INFO    | Keystroke AE  epoch   1/50 — train_loss=2.769778  val_loss=2.736804
+2026-09-17 12:09:28,665 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  10/50 — train_loss=1.745359  val_loss=1.596481
+2026-09-17 12:09:29,033 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  20/50 — train_loss=0.329091  val_loss=0.277210
+2026-09-17 12:09:29,403 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  30/50 — train_loss=0.080052  val_loss=0.077705
+2026-09-17 12:09:29,746 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  40/50 — train_loss=0.069895  val_loss=0.071527
+2026-09-17 12:09:30,094 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  50/50 — train_loss=0.065680  val_loss=0.065729
+2026-09-17 12:09:30,096 | src.models.train_keystroke | INFO    | Keystroke threshold (p95) = 0.105530
+2026-09-17 12:09:30,099 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:09:36,775 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:36,775 | __main__             | INFO    | STAGE: Fusion
+2026-09-17 12:09:36,775 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:36,794 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:09:36,804 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:09:37,438 | src.fusion.fuse      | INFO    | Fusion RF trained — n_estimators=100, samples=189
+2026-09-17 12:09:37,440 | src.fusion.fuse      | INFO    | Fusion model saved → models_checkpoints\fusion_rf.pkl
+2026-09-17 12:09:38,191 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:38,191 | __main__             | INFO    | STAGE: Evaluation
+2026-09-17 12:09:38,191 | __main__             | INFO    | ============================================================
+2026-09-17 12:09:38,191 | src.evaluation.evaluate | INFO    | === Mouse-only evaluation ===
+2026-09-17 12:09:38,194 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:09:38,639 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_mouse.png
+2026-09-17 12:09:38,639 | src.evaluation.evaluate | INFO    | === Keystroke-only evaluation ===
+2026-09-17 12:09:38,642 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:09:38,773 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_keystroke.png
+2026-09-17 12:09:38,773 | src.evaluation.evaluate | INFO    | === Fused model evaluation ===
+2026-09-17 12:09:38,790 | src.fusion.fuse      | INFO    | Fusion model loaded ← models_checkpoints\fusion_rf.pkl
+2026-09-17 12:09:39,069 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_fused.png
+2026-09-17 12:09:39,069 | src.evaluation.evaluate | INFO    | Evaluation results:
+--------------------------------------------------------
+Model                     FAR      FRR      EER      AUC
+--------------------------------------------------------
+Mouse-only           0.0000   0.1111   0.0012   1.0000
+Keystroke-only       0.0000   0.0469   0.0156   0.9709
+Fused (RF)           0.0000   0.0000   0.0000   1.0000
+--------------------------------------------------------
+2026-09-17 12:09:39,070 | src.evaluation.evaluate | INFO    | Results table saved → results\evaluation_results.txt
+2026-09-17 12:09:39,072 | __main__             | INFO    | Pipeline complete.
+2026-09-17 12:10:29,675 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=all
+2026-09-17 12:10:29,677 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:29,677 | __main__             | INFO    | STAGE: Synthetic Data Generation
+2026-09-17 12:10:29,677 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:29,972 | data.synthetic.synthetic_data_gen | INFO    | Generated 15 synthetic mouse sessions → data/raw
+2026-09-17 12:10:30,053 | data.synthetic.synthetic_data_gen | INFO    | Generated 15 synthetic keystroke sessions → data/raw
+2026-09-17 12:10:30,053 | data.synthetic.synthetic_data_gen | INFO    | All synthetic data generation complete.
+2026-09-17 12:10:30,055 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:30,055 | __main__             | INFO    | STAGE: Feature Engineering
+2026-09-17 12:10:30,055 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:30,055 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_000.csv
+2026-09-17 12:10:30,104 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_000, events=2051, windows=81
+2026-09-17 12:10:30,104 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_001.csv
+2026-09-17 12:10:30,147 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_001, events=2069, windows=81
+2026-09-17 12:10:30,148 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_002.csv
+2026-09-17 12:10:30,175 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_002, events=2061, windows=81
+2026-09-17 12:10:30,176 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_003.csv
+2026-09-17 12:10:30,201 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_003, events=2060, windows=81
+2026-09-17 12:10:30,202 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_004.csv
+2026-09-17 12:10:30,237 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_004, events=2047, windows=80
+2026-09-17 12:10:30,238 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_005.csv
+2026-09-17 12:10:30,269 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_005, events=2066, windows=81
+2026-09-17 12:10:30,270 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_006.csv
+2026-09-17 12:10:30,303 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_006, events=2063, windows=81
+2026-09-17 12:10:30,304 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_007.csv
+2026-09-17 12:10:30,326 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_007, events=2046, windows=80
+2026-09-17 12:10:30,327 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_008.csv
+2026-09-17 12:10:30,357 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_008, events=2072, windows=81
+2026-09-17 12:10:30,358 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_009.csv
+2026-09-17 12:10:30,387 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_009, events=2061, windows=81
+2026-09-17 12:10:30,388 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_000.csv
+2026-09-17 12:10:30,435 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_000, events=2141, windows=84
+2026-09-17 12:10:30,435 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_001.csv
+2026-09-17 12:10:30,481 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_001, events=2115, windows=83
+2026-09-17 12:10:30,482 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_002.csv
+2026-09-17 12:10:30,529 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_002, events=2106, windows=83
+2026-09-17 12:10:30,530 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_003.csv
+2026-09-17 12:10:30,606 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_003, events=2104, windows=83
+2026-09-17 12:10:30,607 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_004.csv
+2026-09-17 12:10:30,663 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_004, events=2127, windows=84
+2026-09-17 12:10:30,666 | src.features.mouse_features | INFO    | Mouse feature extraction complete — 15 sessions processed.
+2026-09-17 12:10:30,666 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_000.csv
+2026-09-17 12:10:30,700 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_000, events=1000, windows=32
+2026-09-17 12:10:30,700 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_001.csv
+2026-09-17 12:10:30,733 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_001, events=1000, windows=32
+2026-09-17 12:10:30,733 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_002.csv
+2026-09-17 12:10:30,763 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_002, events=1000, windows=32
+2026-09-17 12:10:30,764 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_003.csv
+2026-09-17 12:10:30,801 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_003, events=1000, windows=32
+2026-09-17 12:10:30,802 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_004.csv
+2026-09-17 12:10:30,830 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_004, events=1000, windows=32
+2026-09-17 12:10:30,830 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_005.csv
+2026-09-17 12:10:30,869 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_005, events=1000, windows=32
+2026-09-17 12:10:30,870 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_006.csv
+2026-09-17 12:10:30,896 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_006, events=1000, windows=32
+2026-09-17 12:10:30,897 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_007.csv
+2026-09-17 12:10:30,932 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_007, events=1000, windows=32
+2026-09-17 12:10:30,933 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_008.csv
+2026-09-17 12:10:30,964 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_008, events=1000, windows=32
+2026-09-17 12:10:30,964 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_009.csv
+2026-09-17 12:10:31,002 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_009, events=1000, windows=32
+2026-09-17 12:10:31,003 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_000.csv
+2026-09-17 12:10:31,031 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_000, events=1000, windows=32
+2026-09-17 12:10:31,032 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_001.csv
+2026-09-17 12:10:31,088 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_001, events=1000, windows=32
+2026-09-17 12:10:31,088 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_002.csv
+2026-09-17 12:10:31,147 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_002, events=1000, windows=32
+2026-09-17 12:10:31,148 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_003.csv
+2026-09-17 12:10:31,191 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_003, events=1000, windows=32
+2026-09-17 12:10:31,192 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_004.csv
+2026-09-17 12:10:31,240 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_004, events=1000, windows=32
+2026-09-17 12:10:31,242 | src.features.keystroke_features | INFO    | Keystroke feature extraction complete — 15 sessions processed.
+2026-09-17 12:10:31,244 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:31,244 | __main__             | INFO    | STAGE: Model Training
+2026-09-17 12:10:31,245 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:31,245 | src.models.train_mouse | INFO    | Training mouse LSTM-AE on device=cpu
+2026-09-17 12:10:32,807 | src.models.train_mouse | INFO    | Mouse AE  epoch   1/50 — train_loss=34930012.000000  val_loss=20723036.000000
+2026-09-17 12:10:36,198 | src.models.train_mouse | INFO    | Mouse AE  epoch  10/50 — train_loss=38474614.000000  val_loss=20722298.000000
+2026-09-17 12:10:40,291 | src.models.train_mouse | INFO    | Mouse AE  epoch  20/50 — train_loss=34930105.500000  val_loss=20721674.000000
+2026-09-17 12:10:44,290 | src.models.train_mouse | INFO    | Mouse AE  epoch  30/50 — train_loss=36580198.000000  val_loss=20721122.000000
+2026-09-17 12:10:48,330 | src.models.train_mouse | INFO    | Mouse AE  epoch  40/50 — train_loss=34984153.500000  val_loss=20720602.000000
+2026-09-17 12:10:52,334 | src.models.train_mouse | INFO    | Mouse AE  epoch  50/50 — train_loss=36726091.000000  val_loss=20720106.000000
+2026-09-17 12:10:52,346 | src.models.train_mouse | INFO    | Mouse threshold (p95) = 34753980.000000
+2026-09-17 12:10:52,352 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:10:52,353 | src.models.train_keystroke | INFO    | Training keystroke LSTM-AE on device=cpu
+2026-09-17 12:10:52,505 | src.models.train_keystroke | INFO    | Keystroke AE  epoch   1/50 — train_loss=3.047307  val_loss=3.009989
+2026-09-17 12:10:52,812 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  10/50 — train_loss=2.341401  val_loss=2.199729
+2026-09-17 12:10:53,152 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  20/50 — train_loss=0.498881  val_loss=0.414228
+2026-09-17 12:10:53,500 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  30/50 — train_loss=0.091352  val_loss=0.091064
+2026-09-17 12:10:53,844 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  40/50 — train_loss=0.081494  val_loss=0.080057
+2026-09-17 12:10:54,197 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  50/50 — train_loss=0.072735  val_loss=0.071407
+2026-09-17 12:10:54,200 | src.models.train_keystroke | INFO    | Keystroke threshold (p95) = 0.114646
+2026-09-17 12:10:54,203 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:10:55,123 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:55,124 | __main__             | INFO    | STAGE: Fusion
+2026-09-17 12:10:55,124 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:55,138 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:10:55,155 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:10:55,672 | src.fusion.fuse      | INFO    | Fusion RF trained — n_estimators=100, samples=189
+2026-09-17 12:10:55,675 | src.fusion.fuse      | INFO    | Fusion model saved → models_checkpoints\fusion_rf.pkl
+2026-09-17 12:10:55,994 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:55,994 | __main__             | INFO    | STAGE: Evaluation
+2026-09-17 12:10:55,995 | __main__             | INFO    | ============================================================
+2026-09-17 12:10:55,995 | src.evaluation.evaluate | INFO    | === Mouse-only evaluation ===
+2026-09-17 12:10:55,998 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:10:56,359 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_mouse.png
+2026-09-17 12:10:56,359 | src.evaluation.evaluate | INFO    | === Keystroke-only evaluation ===
+2026-09-17 12:10:56,361 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:10:56,502 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_keystroke.png
+2026-09-17 12:10:56,502 | src.evaluation.evaluate | INFO    | === Fused model evaluation ===
+2026-09-17 12:10:56,520 | src.fusion.fuse      | INFO    | Fusion model loaded ← models_checkpoints\fusion_rf.pkl
+2026-09-17 12:10:56,819 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_fused.png
+2026-09-17 12:10:56,820 | src.evaluation.evaluate | INFO    | Evaluation results:
+--------------------------------------------------------
+Model                     FAR      FRR      EER      AUC
+--------------------------------------------------------
+Mouse-only           0.0000   0.1111   0.0012   1.0000
+Keystroke-only       0.0063   0.0625   0.0250   0.9707
+Fused (RF)           0.0000   0.0000   0.0000   1.0000
+--------------------------------------------------------
+2026-09-17 12:10:56,820 | src.evaluation.evaluate | INFO    | Results table saved → results\evaluation_results.txt
+2026-09-17 12:10:56,823 | __main__             | INFO    | Pipeline complete.
+2026-09-17 12:53:05,027 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=train
+2026-09-17 12:53:05,814 | __main__             | INFO    | ============================================================
+2026-09-17 12:53:05,814 | __main__             | INFO    | STAGE: Model Training
+2026-09-17 12:53:05,814 | __main__             | INFO    | ============================================================
+2026-09-17 12:53:05,814 | src.models.train_mouse | INFO    | Training mouse LSTM-AE on device=cpu
+2026-09-17 12:53:05,845 | src.models.train_mouse | INFO    | Fitted and saved mouse scaler to models_checkpoints\mouse_scaler.pkl
+2026-09-17 12:53:07,263 | src.models.train_mouse | INFO    | Mouse AE  epoch   1/50 — train_loss=1.001883  val_loss=0.982943
+2026-09-17 12:53:08,916 | src.models.train_mouse | INFO    | Mouse AE  epoch  10/50 — train_loss=0.946937  val_loss=0.927145
+2026-09-17 12:53:10,652 | src.models.train_mouse | INFO    | Mouse AE  epoch  20/50 — train_loss=0.904145  val_loss=0.847292
+2026-09-17 12:53:12,480 | src.models.train_mouse | INFO    | Mouse AE  epoch  30/50 — train_loss=0.908972  val_loss=0.842032
+2026-09-17 12:53:14,290 | src.models.train_mouse | INFO    | Mouse AE  epoch  40/50 — train_loss=0.897677  val_loss=0.842003
+2026-09-17 12:53:16,084 | src.models.train_mouse | INFO    | Mouse AE  epoch  50/50 — train_loss=0.905681  val_loss=0.840672
+2026-09-17 12:53:16,094 | src.models.train_mouse | INFO    | Mouse threshold (p95) = 1.081140
+2026-09-17 12:53:16,099 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:53:16,099 | src.models.train_keystroke | INFO    | Training keystroke LSTM-AE on device=cpu
+2026-09-17 12:53:16,146 | src.models.train_keystroke | INFO    | Keystroke AE  epoch   1/50 — train_loss=2.777648  val_loss=2.752257
+2026-09-17 12:53:16,485 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  10/50 — train_loss=2.152987  val_loss=2.047660
+2026-09-17 12:53:16,825 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  20/50 — train_loss=0.510962  val_loss=0.436287
+2026-09-17 12:53:17,179 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  30/50 — train_loss=0.087254  val_loss=0.082727
+2026-09-17 12:53:17,535 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  40/50 — train_loss=0.072044  val_loss=0.070762
+2026-09-17 12:53:17,899 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  50/50 — train_loss=0.065597  val_loss=0.064765
+2026-09-17 12:53:17,903 | src.models.train_keystroke | INFO    | Keystroke threshold (p95) = 0.105036
+2026-09-17 12:53:17,905 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:53:17,906 | __main__             | INFO    | Pipeline complete.
+2026-09-17 12:55:29,233 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=fuse
+2026-09-17 12:55:30,106 | __main__             | INFO    | ============================================================
+2026-09-17 12:55:30,106 | __main__             | INFO    | STAGE: Fusion
+2026-09-17 12:55:30,106 | __main__             | INFO    | ============================================================
+2026-09-17 12:55:30,132 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:55:30,146 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:55:30,150 | __main__             | INFO    | Saved 3 imposter sessions for fusion training.
+2026-09-17 12:55:30,605 | src.fusion.fuse      | INFO    | Fusion RF trained — n_estimators=100, samples=155
+2026-09-17 12:55:30,609 | src.fusion.fuse      | INFO    | Fusion model saved → models_checkpoints\fusion_rf.pkl
+2026-09-17 12:55:30,611 | __main__             | INFO    | Pipeline complete.
+2026-09-17 12:55:32,853 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=evaluate
+2026-09-17 12:55:34,140 | __main__             | INFO    | ============================================================
+2026-09-17 12:55:34,140 | __main__             | INFO    | STAGE: Evaluation
+2026-09-17 12:55:34,140 | __main__             | INFO    | ============================================================
+2026-09-17 12:55:34,140 | src.evaluation.evaluate | INFO    | === Mouse-only evaluation ===
+2026-09-17 12:55:34,146 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 12:55:34,426 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_mouse.png
+2026-09-17 12:55:34,426 | src.evaluation.evaluate | INFO    | === Keystroke-only evaluation ===
+2026-09-17 12:55:34,428 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 12:55:34,558 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_keystroke.png
+2026-09-17 12:55:34,558 | src.evaluation.evaluate | INFO    | === Fused model evaluation ===
+2026-09-17 12:55:34,573 | src.fusion.fuse      | INFO    | Fusion model loaded ← models_checkpoints\fusion_rf.pkl
+2026-09-17 12:55:34,790 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_fused.png
+2026-09-17 12:55:34,790 | src.evaluation.evaluate | INFO    | Evaluation results:
+--------------------------------------------------------
+Model                     FAR      FRR      EER      AUC
+--------------------------------------------------------
+Mouse-only           0.0000   0.0926   0.0000   1.0000
+Keystroke-only       0.0000   0.0469   0.0156   0.9707
+Fused (RF)           0.0000   0.0000   0.0000   1.0000
+--------------------------------------------------------
+2026-09-17 12:55:34,791 | src.evaluation.evaluate | INFO    | Results table saved → results\evaluation_results.txt
+2026-09-17 12:55:34,793 | __main__             | INFO    | Pipeline complete.
+2026-09-17 13:13:04,870 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=all
+2026-09-17 13:13:04,873 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:04,874 | __main__             | INFO    | STAGE: Synthetic Data Generation
+2026-09-17 13:13:04,874 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:05,749 | data.synthetic.synthetic_data_gen | INFO    | Generated 45 synthetic mouse sessions → data/raw
+2026-09-17 13:13:05,995 | data.synthetic.synthetic_data_gen | INFO    | Generated 45 synthetic keystroke sessions → data/raw
+2026-09-17 13:13:05,995 | data.synthetic.synthetic_data_gen | INFO    | All synthetic data generation complete.
+2026-09-17 13:13:05,996 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:05,996 | __main__             | INFO    | STAGE: Feature Engineering
+2026-09-17 13:13:05,996 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:05,996 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_000.csv
+2026-09-17 13:13:06,023 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_000, events=2051, windows=81
+2026-09-17 13:13:06,024 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_001.csv
+2026-09-17 13:13:06,055 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_001, events=2069, windows=81
+2026-09-17 13:13:06,055 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_002.csv
+2026-09-17 13:13:06,083 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_002, events=2061, windows=81
+2026-09-17 13:13:06,084 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_003.csv
+2026-09-17 13:13:06,124 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_003, events=2060, windows=81
+2026-09-17 13:13:06,125 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_004.csv
+2026-09-17 13:13:06,161 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_004, events=2047, windows=80
+2026-09-17 13:13:06,161 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_005.csv
+2026-09-17 13:13:06,191 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_005, events=2066, windows=81
+2026-09-17 13:13:06,192 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_006.csv
+2026-09-17 13:13:06,227 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_006, events=2063, windows=81
+2026-09-17 13:13:06,228 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_007.csv
+2026-09-17 13:13:06,257 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_007, events=2046, windows=80
+2026-09-17 13:13:06,257 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_008.csv
+2026-09-17 13:13:06,283 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_008, events=2072, windows=81
+2026-09-17 13:13:06,284 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_009.csv
+2026-09-17 13:13:06,317 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_009, events=2061, windows=81
+2026-09-17 13:13:06,318 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_010.csv
+2026-09-17 13:13:06,351 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_010, events=2066, windows=81
+2026-09-17 13:13:06,353 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_011.csv
+2026-09-17 13:13:06,388 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_011, events=2063, windows=81
+2026-09-17 13:13:06,389 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_012.csv
+2026-09-17 13:13:06,408 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_012, events=2058, windows=81
+2026-09-17 13:13:06,409 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_013.csv
+2026-09-17 13:13:06,426 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_013, events=2048, windows=80
+2026-09-17 13:13:06,427 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_014.csv
+2026-09-17 13:13:06,455 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_014, events=2065, windows=81
+2026-09-17 13:13:06,457 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_015.csv
+2026-09-17 13:13:06,485 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_015, events=2071, windows=81
+2026-09-17 13:13:06,485 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_016.csv
+2026-09-17 13:13:06,517 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_016, events=2059, windows=81
+2026-09-17 13:13:06,517 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_017.csv
+2026-09-17 13:13:06,535 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_017, events=2061, windows=81
+2026-09-17 13:13:06,536 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_018.csv
+2026-09-17 13:13:06,570 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_018, events=2051, windows=81
+2026-09-17 13:13:06,572 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_019.csv
+2026-09-17 13:13:06,601 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_019, events=2053, windows=81
+2026-09-17 13:13:06,603 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_020.csv
+2026-09-17 13:13:06,639 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_020, events=2065, windows=81
+2026-09-17 13:13:06,641 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_021.csv
+2026-09-17 13:13:06,663 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_021, events=2060, windows=81
+2026-09-17 13:13:06,664 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_022.csv
+2026-09-17 13:13:06,679 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_022, events=2047, windows=80
+2026-09-17 13:13:06,680 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_023.csv
+2026-09-17 13:13:06,697 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_023, events=2051, windows=81
+2026-09-17 13:13:06,698 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_024.csv
+2026-09-17 13:13:06,731 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_024, events=2055, windows=81
+2026-09-17 13:13:06,732 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_025.csv
+2026-09-17 13:13:06,747 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_025, events=2055, windows=81
+2026-09-17 13:13:06,749 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_026.csv
+2026-09-17 13:13:06,774 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_026, events=2065, windows=81
+2026-09-17 13:13:06,776 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_027.csv
+2026-09-17 13:13:06,809 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_027, events=2070, windows=81
+2026-09-17 13:13:06,811 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_028.csv
+2026-09-17 13:13:06,834 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_028, events=2062, windows=81
+2026-09-17 13:13:06,835 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_029.csv
+2026-09-17 13:13:06,862 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_029, events=2063, windows=81
+2026-09-17 13:13:06,863 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_000.csv
+2026-09-17 13:13:06,916 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_000, events=2065, windows=81
+2026-09-17 13:13:06,916 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_001.csv
+2026-09-17 13:13:06,965 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_001, events=2076, windows=82
+2026-09-17 13:13:06,966 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_002.csv
+2026-09-17 13:13:07,019 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_002, events=2090, windows=82
+2026-09-17 13:13:07,019 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_003.csv
+2026-09-17 13:13:07,072 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_003, events=2098, windows=82
+2026-09-17 13:13:07,073 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_004.csv
+2026-09-17 13:13:07,118 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_004, events=2072, windows=81
+2026-09-17 13:13:07,119 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_005.csv
+2026-09-17 13:13:07,169 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_005, events=2083, windows=82
+2026-09-17 13:13:07,171 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_006.csv
+2026-09-17 13:13:07,203 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_006, events=2077, windows=82
+2026-09-17 13:13:07,204 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_007.csv
+2026-09-17 13:13:07,253 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_007, events=2085, windows=82
+2026-09-17 13:13:07,254 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_008.csv
+2026-09-17 13:13:07,276 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_008, events=2072, windows=81
+2026-09-17 13:13:07,278 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_009.csv
+2026-09-17 13:13:07,319 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_009, events=2072, windows=81
+2026-09-17 13:13:07,321 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_010.csv
+2026-09-17 13:13:07,366 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_010, events=2076, windows=82
+2026-09-17 13:13:07,367 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_011.csv
+2026-09-17 13:13:07,410 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_011, events=2092, windows=82
+2026-09-17 13:13:07,411 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_012.csv
+2026-09-17 13:13:07,455 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_012, events=2077, windows=82
+2026-09-17 13:13:07,456 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_013.csv
+2026-09-17 13:13:07,478 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_013, events=2071, windows=81
+2026-09-17 13:13:07,478 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_014.csv
+2026-09-17 13:13:07,521 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_014, events=2080, windows=82
+2026-09-17 13:13:07,524 | src.features.mouse_features | INFO    | Mouse feature extraction complete — 45 sessions processed.
+2026-09-17 13:13:07,524 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_000.csv
+2026-09-17 13:13:07,558 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_000, events=1000, windows=32
+2026-09-17 13:13:07,559 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_001.csv
+2026-09-17 13:13:07,592 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_001, events=1000, windows=32
+2026-09-17 13:13:07,592 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_002.csv
+2026-09-17 13:13:07,632 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_002, events=1000, windows=32
+2026-09-17 13:13:07,633 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_003.csv
+2026-09-17 13:13:07,674 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_003, events=1000, windows=32
+2026-09-17 13:13:07,675 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_004.csv
+2026-09-17 13:13:07,710 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_004, events=1000, windows=32
+2026-09-17 13:13:07,711 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_005.csv
+2026-09-17 13:13:07,749 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_005, events=1000, windows=32
+2026-09-17 13:13:07,749 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_006.csv
+2026-09-17 13:13:07,787 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_006, events=1000, windows=32
+2026-09-17 13:13:07,788 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_007.csv
+2026-09-17 13:13:07,824 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_007, events=1000, windows=32
+2026-09-17 13:13:07,824 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_008.csv
+2026-09-17 13:13:07,857 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_008, events=1000, windows=32
+2026-09-17 13:13:07,857 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_009.csv
+2026-09-17 13:13:07,909 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_009, events=1000, windows=32
+2026-09-17 13:13:07,910 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_010.csv
+2026-09-17 13:13:07,944 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_010, events=1000, windows=32
+2026-09-17 13:13:07,945 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_011.csv
+2026-09-17 13:13:07,971 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_011, events=1000, windows=32
+2026-09-17 13:13:07,972 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_012.csv
+2026-09-17 13:13:08,003 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_012, events=1000, windows=32
+2026-09-17 13:13:08,005 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_013.csv
+2026-09-17 13:13:08,032 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_013, events=1000, windows=32
+2026-09-17 13:13:08,033 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_014.csv
+2026-09-17 13:13:08,064 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_014, events=1000, windows=32
+2026-09-17 13:13:08,065 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_015.csv
+2026-09-17 13:13:19,445 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_015, events=1000, windows=32
+2026-09-17 13:13:19,446 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_016.csv
+2026-09-17 13:13:19,488 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_016, events=1000, windows=32
+2026-09-17 13:13:19,495 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_017.csv
+2026-09-17 13:13:19,533 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_017, events=1000, windows=32
+2026-09-17 13:13:19,534 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_018.csv
+2026-09-17 13:13:19,566 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_018, events=1000, windows=32
+2026-09-17 13:13:19,567 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_019.csv
+2026-09-17 13:13:19,600 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_019, events=1000, windows=32
+2026-09-17 13:13:19,600 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_020.csv
+2026-09-17 13:13:19,633 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_020, events=1000, windows=32
+2026-09-17 13:13:19,635 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_021.csv
+2026-09-17 13:13:19,670 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_021, events=1000, windows=32
+2026-09-17 13:13:19,671 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_022.csv
+2026-09-17 13:13:19,694 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_022, events=1000, windows=32
+2026-09-17 13:13:19,695 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_023.csv
+2026-09-17 13:13:19,719 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_023, events=1000, windows=32
+2026-09-17 13:13:19,720 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_024.csv
+2026-09-17 13:13:19,745 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_024, events=1000, windows=32
+2026-09-17 13:13:19,746 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_025.csv
+2026-09-17 13:13:19,785 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_025, events=1000, windows=32
+2026-09-17 13:13:19,786 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_026.csv
+2026-09-17 13:13:19,815 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_026, events=1000, windows=32
+2026-09-17 13:13:19,816 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_027.csv
+2026-09-17 13:13:19,848 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_027, events=1000, windows=32
+2026-09-17 13:13:19,848 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_028.csv
+2026-09-17 13:13:19,881 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_028, events=1000, windows=32
+2026-09-17 13:13:19,882 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_029.csv
+2026-09-17 13:13:19,914 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_029, events=1000, windows=32
+2026-09-17 13:13:19,915 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_000.csv
+2026-09-17 13:13:19,952 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_000, events=1000, windows=32
+2026-09-17 13:13:19,953 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_001.csv
+2026-09-17 13:13:19,996 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_001, events=1000, windows=32
+2026-09-17 13:13:19,997 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_002.csv
+2026-09-17 13:13:20,037 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_002, events=1000, windows=32
+2026-09-17 13:13:20,038 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_003.csv
+2026-09-17 13:13:20,081 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_003, events=1000, windows=32
+2026-09-17 13:13:20,082 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_004.csv
+2026-09-17 13:13:20,131 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_004, events=1000, windows=32
+2026-09-17 13:13:20,132 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_005.csv
+2026-09-17 13:13:20,175 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_005, events=1000, windows=32
+2026-09-17 13:13:20,176 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_006.csv
+2026-09-17 13:13:20,203 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_006, events=1000, windows=32
+2026-09-17 13:13:20,203 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_007.csv
+2026-09-17 13:13:20,256 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_007, events=1000, windows=32
+2026-09-17 13:13:20,257 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_008.csv
+2026-09-17 13:13:20,284 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_008, events=1000, windows=32
+2026-09-17 13:13:20,285 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_009.csv
+2026-09-17 13:13:20,332 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_009, events=1000, windows=32
+2026-09-17 13:13:20,333 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_010.csv
+2026-09-17 13:13:20,378 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_010, events=1000, windows=32
+2026-09-17 13:13:20,379 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_011.csv
+2026-09-17 13:13:20,405 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_011, events=1000, windows=32
+2026-09-17 13:13:20,406 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_012.csv
+2026-09-17 13:13:20,451 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_012, events=1000, windows=32
+2026-09-17 13:13:20,452 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_013.csv
+2026-09-17 13:13:20,499 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_013, events=1000, windows=32
+2026-09-17 13:13:20,500 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_014.csv
+2026-09-17 13:13:20,544 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_014, events=1000, windows=32
+2026-09-17 13:13:20,545 | src.features.keystroke_features | INFO    | Keystroke feature extraction complete — 45 sessions processed.
+2026-09-17 13:13:21,328 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:21,328 | __main__             | INFO    | STAGE: Model Training
+2026-09-17 13:13:21,328 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:21,329 | src.models.train_mouse | INFO    | Training mouse LSTM-AE on device=cpu
+2026-09-17 13:13:21,851 | src.models.train_mouse | INFO    | Fitted and saved mouse scaler to models_checkpoints\mouse_scaler.pkl
+2026-09-17 13:13:23,590 | src.models.train_mouse | INFO    | Mouse AE  epoch   1/50 — train_loss=0.996135  val_loss=0.902985
+2026-09-17 13:13:28,315 | src.models.train_mouse | INFO    | Mouse AE  epoch  10/50 — train_loss=0.896127  val_loss=0.772781
+2026-09-17 13:13:33,548 | src.models.train_mouse | INFO    | Mouse AE  epoch  20/50 — train_loss=0.893936  val_loss=0.772127
+2026-09-17 13:13:38,840 | src.models.train_mouse | INFO    | Mouse AE  epoch  30/50 — train_loss=0.983212  val_loss=0.771709
+2026-09-17 13:13:44,184 | src.models.train_mouse | INFO    | Mouse AE  epoch  40/50 — train_loss=0.895472  val_loss=0.770176
+2026-09-17 13:13:49,466 | src.models.train_mouse | INFO    | Mouse AE  epoch  50/50 — train_loss=0.895708  val_loss=0.768518
+2026-09-17 13:13:49,495 | src.models.train_mouse | INFO    | Mouse threshold (p95) = 1.061163
+2026-09-17 13:13:49,501 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 13:13:49,502 | src.models.train_keystroke | INFO    | Training keystroke LSTM-AE on device=cpu
+2026-09-17 13:13:49,902 | src.models.train_keystroke | INFO    | Keystroke AE  epoch   1/50 — train_loss=2.896526  val_loss=2.823960
+2026-09-17 13:13:50,751 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  10/50 — train_loss=0.236967  val_loss=0.183721
+2026-09-17 13:13:51,715 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  20/50 — train_loss=0.068258  val_loss=0.068425
+2026-09-17 13:13:52,682 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  30/50 — train_loss=0.063217  val_loss=0.061860
+2026-09-17 13:13:53,634 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  40/50 — train_loss=0.057899  val_loss=0.058488
+2026-09-17 13:13:54,596 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  50/50 — train_loss=0.057302  val_loss=0.056280
+2026-09-17 13:13:54,600 | src.models.train_keystroke | INFO    | Keystroke threshold (p95) = 0.089942
+2026-09-17 13:13:54,602 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 13:13:54,764 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:54,764 | __main__             | INFO    | STAGE: Fusion
+2026-09-17 13:13:54,764 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:54,779 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 13:13:54,793 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 13:13:54,797 | __main__             | INFO    | Saved 9 imposter sessions for fusion training.
+2026-09-17 13:13:55,841 | src.fusion.fuse      | INFO    | Fusion RF trained — n_estimators=100, samples=447
+2026-09-17 13:13:55,844 | src.fusion.fuse      | INFO    | Fusion model saved → models_checkpoints\fusion_rf.pkl
+2026-09-17 13:13:56,281 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:56,281 | __main__             | INFO    | STAGE: Evaluation
+2026-09-17 13:13:56,281 | __main__             | INFO    | ============================================================
+2026-09-17 13:13:56,282 | src.evaluation.evaluate | INFO    | === Mouse-only evaluation ===
+2026-09-17 13:13:56,284 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-17 13:13:56,809 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_mouse.png
+2026-09-17 13:13:56,809 | src.evaluation.evaluate | INFO    | === Keystroke-only evaluation ===
+2026-09-17 13:13:56,811 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-17 13:13:57,320 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_keystroke.png
+2026-09-17 13:13:57,320 | src.evaluation.evaluate | INFO    | === Fused model evaluation ===
+2026-09-17 13:13:57,336 | src.fusion.fuse      | INFO    | Fusion model loaded ← models_checkpoints\fusion_rf.pkl
+2026-09-17 13:13:57,739 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_fused.png
+2026-09-17 13:13:57,739 | src.evaluation.evaluate | INFO    | Evaluation results:
+--------------------------------------------------------
+Model                     FAR      FRR      EER      AUC
+--------------------------------------------------------
+Mouse-only           0.0008   0.0556   0.0246   0.9940
+Keystroke-only       0.4396   0.0781   0.1354   0.9049
+Fused (RF)           0.0111   0.0000   0.0120   0.9999
+--------------------------------------------------------
+2026-09-17 13:13:57,740 | src.evaluation.evaluate | INFO    | Results table saved → results\evaluation_results.txt
+2026-09-17 13:13:57,744 | __main__             | INFO    | Pipeline complete.
+2026-09-23 14:07:27,947 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=all
+2026-09-23 14:07:27,948 | __main__             | INFO    | ============================================================
+2026-09-23 14:07:27,948 | __main__             | INFO    | STAGE: Synthetic Data Generation
+2026-09-23 14:07:27,948 | __main__             | INFO    | ============================================================
+2026-09-23 14:07:28,845 | data.synthetic.synthetic_data_gen | INFO    | Generated 45 synthetic mouse sessions → data/raw
+2026-09-23 14:07:29,234 | data.synthetic.synthetic_data_gen | INFO    | Generated 45 synthetic keystroke sessions → data/raw
+2026-09-23 14:07:29,234 | data.synthetic.synthetic_data_gen | INFO    | All synthetic data generation complete.
+2026-09-23 14:07:29,244 | __main__             | INFO    | ============================================================
+2026-09-23 14:07:29,244 | __main__             | INFO    | STAGE: Feature Engineering
+2026-09-23 14:07:29,245 | __main__             | INFO    | ============================================================
+2026-09-23 14:07:29,245 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_000.csv
+2026-09-23 14:07:29,295 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_000, events=2051, windows=81
+2026-09-23 14:07:29,297 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_001.csv
+2026-09-23 14:07:29,334 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_001, events=2069, windows=81
+2026-09-23 14:07:29,336 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_002.csv
+2026-09-23 14:07:29,367 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_002, events=2061, windows=81
+2026-09-23 14:07:29,369 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_003.csv
+2026-09-23 14:07:29,395 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_003, events=2060, windows=81
+2026-09-23 14:07:29,397 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_004.csv
+2026-09-23 14:07:29,424 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_004, events=2047, windows=80
+2026-09-23 14:07:29,425 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_005.csv
+2026-09-23 14:07:29,460 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_005, events=2066, windows=81
+2026-09-23 14:07:29,464 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_006.csv
+2026-09-23 14:07:29,501 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_006, events=2063, windows=81
+2026-09-23 14:07:29,502 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_007.csv
+2026-09-23 14:07:29,539 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_007, events=2046, windows=80
+2026-09-23 14:07:29,540 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_008.csv
+2026-09-23 14:07:29,582 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_008, events=2072, windows=81
+2026-09-23 14:07:29,583 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_009.csv
+2026-09-23 14:07:29,624 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_009, events=2061, windows=81
+2026-09-23 14:07:29,625 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_010.csv
+2026-09-23 14:07:29,659 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_010, events=2066, windows=81
+2026-09-23 14:07:29,660 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_011.csv
+2026-09-23 14:07:29,684 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_011, events=2063, windows=81
+2026-09-23 14:07:29,685 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_012.csv
+2026-09-23 14:07:29,710 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_012, events=2058, windows=81
+2026-09-23 14:07:29,711 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_013.csv
+2026-09-23 14:07:29,735 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_013, events=2048, windows=80
+2026-09-23 14:07:29,736 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_014.csv
+2026-09-23 14:07:29,767 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_014, events=2065, windows=81
+2026-09-23 14:07:29,769 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_015.csv
+2026-09-23 14:07:29,800 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_015, events=2071, windows=81
+2026-09-23 14:07:29,801 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_016.csv
+2026-09-23 14:07:29,838 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_016, events=2059, windows=81
+2026-09-23 14:07:29,839 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_017.csv
+2026-09-23 14:07:29,857 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_017, events=2061, windows=81
+2026-09-23 14:07:29,858 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_018.csv
+2026-09-23 14:07:29,893 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_018, events=2051, windows=81
+2026-09-23 14:07:29,894 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_019.csv
+2026-09-23 14:07:29,917 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_019, events=2053, windows=81
+2026-09-23 14:07:29,918 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_020.csv
+2026-09-23 14:07:29,953 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_020, events=2065, windows=81
+2026-09-23 14:07:29,954 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_021.csv
+2026-09-23 14:07:29,981 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_021, events=2060, windows=81
+2026-09-23 14:07:29,982 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_022.csv
+2026-09-23 14:07:30,007 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_022, events=2047, windows=80
+2026-09-23 14:07:30,008 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_023.csv
+2026-09-23 14:07:30,036 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_023, events=2051, windows=81
+2026-09-23 14:07:30,037 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_024.csv
+2026-09-23 14:07:30,066 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_024, events=2055, windows=81
+2026-09-23 14:07:30,067 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_025.csv
+2026-09-23 14:07:30,093 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_025, events=2055, windows=81
+2026-09-23 14:07:30,093 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_026.csv
+2026-09-23 14:07:30,126 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_026, events=2065, windows=81
+2026-09-23 14:07:30,128 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_027.csv
+2026-09-23 14:07:30,145 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_027, events=2070, windows=81
+2026-09-23 14:07:30,147 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_028.csv
+2026-09-23 14:07:30,169 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_028, events=2062, windows=81
+2026-09-23 14:07:30,170 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_029.csv
+2026-09-23 14:07:30,201 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_029, events=2063, windows=81
+2026-09-23 14:07:30,202 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_000.csv
+2026-09-23 14:07:30,251 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_000, events=2065, windows=81
+2026-09-23 14:07:30,252 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_001.csv
+2026-09-23 14:07:30,293 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_001, events=2076, windows=82
+2026-09-23 14:07:30,294 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_002.csv
+2026-09-23 14:07:30,342 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_002, events=2090, windows=82
+2026-09-23 14:07:30,343 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_003.csv
+2026-09-23 14:07:30,396 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_003, events=2098, windows=82
+2026-09-23 14:07:30,397 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_004.csv
+2026-09-23 14:07:30,432 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_004, events=2072, windows=81
+2026-09-23 14:07:30,433 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_005.csv
+2026-09-23 14:07:30,484 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_005, events=2083, windows=82
+2026-09-23 14:07:30,485 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_006.csv
+2026-09-23 14:07:30,526 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_006, events=2077, windows=82
+2026-09-23 14:07:30,527 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_007.csv
+2026-09-23 14:07:30,577 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_007, events=2085, windows=82
+2026-09-23 14:07:30,578 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_008.csv
+2026-09-23 14:07:30,622 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_008, events=2072, windows=81
+2026-09-23 14:07:30,623 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_009.csv
+2026-09-23 14:07:30,667 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_009, events=2072, windows=81
+2026-09-23 14:07:30,667 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_010.csv
+2026-09-23 14:07:30,711 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_010, events=2076, windows=82
+2026-09-23 14:07:30,712 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_011.csv
+2026-09-23 14:07:30,754 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_011, events=2092, windows=82
+2026-09-23 14:07:30,755 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_012.csv
+2026-09-23 14:07:30,803 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_012, events=2077, windows=82
+2026-09-23 14:07:30,804 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_013.csv
+2026-09-23 14:07:30,854 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_013, events=2071, windows=81
+2026-09-23 14:07:30,855 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_014.csv
+2026-09-23 14:07:30,892 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_014, events=2080, windows=82
+2026-09-23 14:07:30,896 | src.features.mouse_features | INFO    | Mouse feature extraction complete — 45 sessions processed.
+2026-09-23 14:07:30,897 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_000.csv
+2026-09-23 14:07:30,933 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_000, events=1000, windows=32
+2026-09-23 14:07:30,933 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_001.csv
+2026-09-23 14:07:30,958 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_001, events=1000, windows=32
+2026-09-23 14:07:30,959 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_002.csv
+2026-09-23 14:07:30,993 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_002, events=1000, windows=32
+2026-09-23 14:07:30,994 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_003.csv
+2026-09-23 14:07:31,025 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_003, events=1000, windows=32
+2026-09-23 14:07:31,026 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_004.csv
+2026-09-23 14:07:31,064 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_004, events=1000, windows=32
+2026-09-23 14:07:31,065 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_005.csv
+2026-09-23 14:07:31,098 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_005, events=1000, windows=32
+2026-09-23 14:07:31,099 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_006.csv
+2026-09-23 14:07:31,130 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_006, events=1000, windows=32
+2026-09-23 14:07:31,130 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_007.csv
+2026-09-23 14:07:31,163 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_007, events=1000, windows=32
+2026-09-23 14:07:31,164 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_008.csv
+2026-09-23 14:07:31,199 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_008, events=1000, windows=32
+2026-09-23 14:07:31,200 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_009.csv
+2026-09-23 14:07:31,233 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_009, events=1000, windows=32
+2026-09-23 14:07:31,234 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_010.csv
+2026-09-23 14:07:31,274 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_010, events=1000, windows=32
+2026-09-23 14:07:31,274 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_011.csv
+2026-09-23 14:07:31,316 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_011, events=1000, windows=32
+2026-09-23 14:07:31,317 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_012.csv
+2026-09-23 14:07:31,351 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_012, events=1000, windows=32
+2026-09-23 14:07:31,354 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_013.csv
+2026-09-23 14:07:31,391 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_013, events=1000, windows=32
+2026-09-23 14:07:31,392 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_014.csv
+2026-09-23 14:07:31,426 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_014, events=1000, windows=32
+2026-09-23 14:07:31,426 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_015.csv
+2026-09-23 14:07:31,459 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_015, events=1000, windows=32
+2026-09-23 14:07:31,460 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_016.csv
+2026-09-23 14:07:31,495 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_016, events=1000, windows=32
+2026-09-23 14:07:31,496 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_017.csv
+2026-09-23 14:07:31,536 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_017, events=1000, windows=32
+2026-09-23 14:07:31,536 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_018.csv
+2026-09-23 14:07:31,570 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_018, events=1000, windows=32
+2026-09-23 14:07:31,571 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_019.csv
+2026-09-23 14:07:31,604 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_019, events=1000, windows=32
+2026-09-23 14:07:31,606 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_020.csv
+2026-09-23 14:07:31,641 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_020, events=1000, windows=32
+2026-09-23 14:07:31,642 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_021.csv
+2026-09-23 14:07:31,676 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_021, events=1000, windows=32
+2026-09-23 14:07:31,677 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_022.csv
+2026-09-23 14:07:31,712 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_022, events=1000, windows=32
+2026-09-23 14:07:31,713 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_023.csv
+2026-09-23 14:07:31,746 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_023, events=1000, windows=32
+2026-09-23 14:07:31,747 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_024.csv
+2026-09-23 14:07:31,780 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_024, events=1000, windows=32
+2026-09-23 14:07:31,781 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_025.csv
+2026-09-23 14:07:31,824 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_025, events=1000, windows=32
+2026-09-23 14:07:31,827 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_026.csv
+2026-09-23 14:07:31,860 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_026, events=1000, windows=32
+2026-09-23 14:07:31,862 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_027.csv
+2026-09-23 14:07:31,898 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_027, events=1000, windows=32
+2026-09-23 14:07:31,899 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_028.csv
+2026-09-23 14:07:31,935 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_028, events=1000, windows=32
+2026-09-23 14:07:31,936 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_029.csv
+2026-09-23 14:07:31,970 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_029, events=1000, windows=32
+2026-09-23 14:07:31,971 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_000.csv
+2026-09-23 14:07:32,014 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_000, events=1000, windows=32
+2026-09-23 14:07:32,015 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_001.csv
+2026-09-23 14:07:32,059 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_001, events=1000, windows=32
+2026-09-23 14:07:32,061 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_002.csv
+2026-09-23 14:07:32,109 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_002, events=1000, windows=32
+2026-09-23 14:07:32,110 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_003.csv
+2026-09-23 14:07:32,159 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_003, events=1000, windows=32
+2026-09-23 14:07:32,160 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_004.csv
+2026-09-23 14:07:32,206 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_004, events=1000, windows=32
+2026-09-23 14:07:32,209 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_005.csv
+2026-09-23 14:07:32,258 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_005, events=1000, windows=32
+2026-09-23 14:07:32,259 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_006.csv
+2026-09-23 14:07:32,307 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_006, events=1000, windows=32
+2026-09-23 14:07:32,309 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_007.csv
+2026-09-23 14:07:32,355 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_007, events=1000, windows=32
+2026-09-23 14:07:32,356 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_008.csv
+2026-09-23 14:07:32,406 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_008, events=1000, windows=32
+2026-09-23 14:07:32,407 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_009.csv
+2026-09-23 14:07:32,453 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_009, events=1000, windows=32
+2026-09-23 14:07:32,456 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_010.csv
+2026-09-23 14:07:32,501 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_010, events=1000, windows=32
+2026-09-23 14:07:32,504 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_011.csv
+2026-09-23 14:07:32,551 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_011, events=1000, windows=32
+2026-09-23 14:07:32,552 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_012.csv
+2026-09-23 14:07:32,599 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_012, events=1000, windows=32
+2026-09-23 14:07:32,601 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_013.csv
+2026-09-23 14:07:32,649 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_013, events=1000, windows=32
+2026-09-23 14:07:32,650 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_014.csv
+2026-09-23 14:07:32,699 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_014, events=1000, windows=32
+2026-09-23 14:07:32,701 | src.features.keystroke_features | INFO    | Keystroke feature extraction complete — 45 sessions processed.
+2026-09-23 14:07:40,862 | __main__             | INFO    | ============================================================
+2026-09-23 14:07:40,862 | __main__             | INFO    | STAGE: Model Training
+2026-09-23 14:07:40,862 | __main__             | INFO    | ============================================================
+2026-09-23 14:07:40,862 | src.models.train_mouse | INFO    | Training mouse LSTM-AE on device=cpu
+2026-09-23 14:07:41,309 | src.models.train_mouse | INFO    | Fitted and saved mouse scaler to models_checkpoints\mouse_scaler.pkl
+2026-09-23 14:07:43,536 | src.models.train_mouse | INFO    | Mouse AE  epoch   1/50 — train_loss=0.994994  val_loss=0.903555
+2026-09-23 14:07:48,109 | src.models.train_mouse | INFO    | Mouse AE  epoch  10/50 — train_loss=0.895677  val_loss=0.771963
+2026-09-23 14:07:54,693 | src.models.train_mouse | INFO    | Mouse AE  epoch  20/50 — train_loss=0.893979  val_loss=0.771070
+2026-09-23 14:07:59,692 | src.models.train_mouse | INFO    | Mouse AE  epoch  30/50 — train_loss=0.906066  val_loss=0.769926
+2026-09-23 14:08:04,682 | src.models.train_mouse | INFO    | Mouse AE  epoch  40/50 — train_loss=0.898278  val_loss=0.769489
+2026-09-23 14:08:09,900 | src.models.train_mouse | INFO    | Mouse AE  epoch  50/50 — train_loss=0.896646  val_loss=0.769042
+2026-09-23 14:08:09,938 | src.models.train_mouse | INFO    | Mouse threshold (p95) = 1.063274
+2026-09-23 14:08:09,946 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\mouse_lstm_ae.pt
+2026-09-23 14:08:09,948 | src.models.train_keystroke | INFO    | Training keystroke LSTM-AE on device=cpu
+2026-09-23 14:08:10,154 | src.models.train_keystroke | INFO    | Keystroke AE  epoch   1/50 — train_loss=2.697508  val_loss=2.627300
+2026-09-23 14:08:10,921 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  10/50 — train_loss=0.121668  val_loss=0.101617
+2026-09-23 14:08:11,850 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  20/50 — train_loss=0.067217  val_loss=0.066776
+2026-09-23 14:08:12,771 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  30/50 — train_loss=0.061909  val_loss=0.061247
+2026-09-23 14:08:13,732 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  40/50 — train_loss=0.057041  val_loss=0.058159
+2026-09-23 14:08:14,645 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  50/50 — train_loss=0.055937  val_loss=0.055946
+2026-09-23 14:08:14,649 | src.models.train_keystroke | INFO    | Keystroke threshold (p95) = 0.090165
+2026-09-23 14:08:14,652 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\keystroke_lstm_ae.pt
+2026-09-23 14:08:15,742 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:15,743 | __main__             | INFO    | STAGE: Fusion
+2026-09-23 14:08:15,743 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:15,759 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-23 14:08:15,777 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-23 14:08:15,782 | __main__             | INFO    | Saved 9 imposter sessions for fusion training.
+2026-09-23 14:08:16,733 | src.fusion.fuse      | INFO    | Fusion RF trained — n_estimators=100, samples=447
+2026-09-23 14:08:16,735 | src.fusion.fuse      | INFO    | Fusion model saved → models_checkpoints\fusion_rf.pkl
+2026-09-23 14:08:17,646 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:17,647 | __main__             | INFO    | STAGE: Evaluation
+2026-09-23 14:08:17,647 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:17,647 | src.evaluation.evaluate | INFO    | === Mouse-only evaluation ===
+2026-09-23 14:08:17,649 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-23 14:08:18,164 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_mouse.png
+2026-09-23 14:08:18,165 | src.evaluation.evaluate | INFO    | === Keystroke-only evaluation ===
+2026-09-23 14:08:18,167 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-23 14:08:18,312 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_keystroke.png
+2026-09-23 14:08:18,312 | src.evaluation.evaluate | INFO    | === Fused model evaluation ===
+2026-09-23 14:08:18,337 | src.fusion.fuse      | INFO    | Fusion model loaded ← models_checkpoints\fusion_rf.pkl
+2026-09-23 14:08:18,763 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_fused.png
+2026-09-23 14:08:18,764 | src.evaluation.evaluate | INFO    | Evaluation results:
+--------------------------------------------------------
+Model                     FAR      FRR      EER      AUC
+--------------------------------------------------------
+Mouse-only           0.0016   0.0556   0.0246   0.9940
+Keystroke-only       0.4521   0.0781   0.1365   0.9039
+Fused (RF)           0.0111   0.0000   0.0120   0.9999
+--------------------------------------------------------
+2026-09-23 14:08:18,765 | src.evaluation.evaluate | INFO    | Results table saved → results\evaluation_results.txt
+2026-09-23 14:08:18,768 | __main__             | INFO    | Pipeline complete.
+2026-09-23 14:08:21,105 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=all
+2026-09-23 14:08:21,106 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:21,106 | __main__             | INFO    | STAGE: Synthetic Data Generation
+2026-09-23 14:08:21,106 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:21,951 | data.synthetic.synthetic_data_gen | INFO    | Generated 45 synthetic mouse sessions → data/raw
+2026-09-23 14:08:22,183 | data.synthetic.synthetic_data_gen | INFO    | Generated 45 synthetic keystroke sessions → data/raw
+2026-09-23 14:08:22,183 | data.synthetic.synthetic_data_gen | INFO    | All synthetic data generation complete.
+2026-09-23 14:08:22,185 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:22,185 | __main__             | INFO    | STAGE: Feature Engineering
+2026-09-23 14:08:22,185 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:22,186 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_000.csv
+2026-09-23 14:08:22,212 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_000, events=2051, windows=81
+2026-09-23 14:08:22,213 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_001.csv
+2026-09-23 14:08:22,240 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_001, events=2069, windows=81
+2026-09-23 14:08:22,241 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_002.csv
+2026-09-23 14:08:22,261 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_002, events=2061, windows=81
+2026-09-23 14:08:22,262 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_003.csv
+2026-09-23 14:08:22,287 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_003, events=2060, windows=81
+2026-09-23 14:08:22,287 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_004.csv
+2026-09-23 14:08:22,322 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_004, events=2047, windows=80
+2026-09-23 14:08:22,323 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_005.csv
+2026-09-23 14:08:22,349 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_005, events=2066, windows=81
+2026-09-23 14:08:22,350 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_006.csv
+2026-09-23 14:08:22,376 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_006, events=2063, windows=81
+2026-09-23 14:08:22,377 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_007.csv
+2026-09-23 14:08:22,401 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_007, events=2046, windows=80
+2026-09-23 14:08:22,402 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_008.csv
+2026-09-23 14:08:22,429 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_008, events=2072, windows=81
+2026-09-23 14:08:22,430 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_009.csv
+2026-09-23 14:08:22,470 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_009, events=2061, windows=81
+2026-09-23 14:08:22,471 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_010.csv
+2026-09-23 14:08:22,493 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_010, events=2066, windows=81
+2026-09-23 14:08:22,494 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_011.csv
+2026-09-23 14:08:22,517 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_011, events=2063, windows=81
+2026-09-23 14:08:22,518 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_012.csv
+2026-09-23 14:08:22,541 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_012, events=2058, windows=81
+2026-09-23 14:08:22,543 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_013.csv
+2026-09-23 14:08:22,567 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_013, events=2048, windows=80
+2026-09-23 14:08:22,567 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_014.csv
+2026-09-23 14:08:22,595 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_014, events=2065, windows=81
+2026-09-23 14:08:22,596 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_015.csv
+2026-09-23 14:08:22,623 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_015, events=2071, windows=81
+2026-09-23 14:08:22,624 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_016.csv
+2026-09-23 14:08:22,646 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_016, events=2059, windows=81
+2026-09-23 14:08:22,647 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_017.csv
+2026-09-23 14:08:22,684 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_017, events=2061, windows=81
+2026-09-23 14:08:22,685 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_018.csv
+2026-09-23 14:08:22,731 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_018, events=2051, windows=81
+2026-09-23 14:08:22,732 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_019.csv
+2026-09-23 14:08:22,753 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_019, events=2053, windows=81
+2026-09-23 14:08:22,754 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_020.csv
+2026-09-23 14:08:22,778 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_020, events=2065, windows=81
+2026-09-23 14:08:22,778 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_021.csv
+2026-09-23 14:08:22,805 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_021, events=2060, windows=81
+2026-09-23 14:08:22,806 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_022.csv
+2026-09-23 14:08:22,831 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_022, events=2047, windows=80
+2026-09-23 14:08:22,831 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_023.csv
+2026-09-23 14:08:22,863 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_023, events=2051, windows=81
+2026-09-23 14:08:22,865 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_024.csv
+2026-09-23 14:08:22,890 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_024, events=2055, windows=81
+2026-09-23 14:08:22,891 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_025.csv
+2026-09-23 14:08:22,912 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_025, events=2055, windows=81
+2026-09-23 14:08:22,913 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_026.csv
+2026-09-23 14:08:22,938 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_026, events=2065, windows=81
+2026-09-23 14:08:22,939 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_027.csv
+2026-09-23 14:08:22,962 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_027, events=2070, windows=81
+2026-09-23 14:08:22,963 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_028.csv
+2026-09-23 14:08:22,986 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_028, events=2062, windows=81
+2026-09-23 14:08:22,987 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_genuine_029.csv
+2026-09-23 14:08:23,015 | src.features.mouse_features | INFO    | Mouse features extracted — session=genuine_029, events=2063, windows=81
+2026-09-23 14:08:23,015 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_000.csv
+2026-09-23 14:08:23,054 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_000, events=2065, windows=81
+2026-09-23 14:08:23,055 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_001.csv
+2026-09-23 14:08:23,086 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_001, events=2076, windows=82
+2026-09-23 14:08:23,087 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_002.csv
+2026-09-23 14:08:23,123 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_002, events=2090, windows=82
+2026-09-23 14:08:23,123 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_003.csv
+2026-09-23 14:08:23,159 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_003, events=2098, windows=82
+2026-09-23 14:08:23,160 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_004.csv
+2026-09-23 14:08:23,211 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_004, events=2072, windows=81
+2026-09-23 14:08:23,212 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_005.csv
+2026-09-23 14:08:23,248 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_005, events=2083, windows=82
+2026-09-23 14:08:23,249 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_006.csv
+2026-09-23 14:08:23,294 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_006, events=2077, windows=82
+2026-09-23 14:08:23,294 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_007.csv
+2026-09-23 14:08:23,335 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_007, events=2085, windows=82
+2026-09-23 14:08:23,335 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_008.csv
+2026-09-23 14:08:23,371 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_008, events=2072, windows=81
+2026-09-23 14:08:23,372 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_009.csv
+2026-09-23 14:08:23,413 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_009, events=2072, windows=81
+2026-09-23 14:08:23,414 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_010.csv
+2026-09-23 14:08:23,453 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_010, events=2076, windows=82
+2026-09-23 14:08:23,454 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_011.csv
+2026-09-23 14:08:23,486 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_011, events=2092, windows=82
+2026-09-23 14:08:23,486 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_012.csv
+2026-09-23 14:08:23,531 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_012, events=2077, windows=82
+2026-09-23 14:08:23,532 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_013.csv
+2026-09-23 14:08:23,579 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_013, events=2071, windows=81
+2026-09-23 14:08:23,583 | src.features.mouse_features | INFO    | Loading raw mouse log: data/raw\mouse_imposter_014.csv
+2026-09-23 14:08:23,642 | src.features.mouse_features | INFO    | Mouse features extracted — session=imposter_014, events=2080, windows=82
+2026-09-23 14:08:23,644 | src.features.mouse_features | INFO    | Mouse feature extraction complete — 45 sessions processed.
+2026-09-23 14:08:23,645 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_000.csv
+2026-09-23 14:08:23,675 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_000, events=1000, windows=32
+2026-09-23 14:08:23,675 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_001.csv
+2026-09-23 14:08:23,708 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_001, events=1000, windows=32
+2026-09-23 14:08:23,709 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_002.csv
+2026-09-23 14:08:23,743 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_002, events=1000, windows=32
+2026-09-23 14:08:23,743 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_003.csv
+2026-09-23 14:08:23,775 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_003, events=1000, windows=32
+2026-09-23 14:08:23,776 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_004.csv
+2026-09-23 14:08:23,808 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_004, events=1000, windows=32
+2026-09-23 14:08:23,809 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_005.csv
+2026-09-23 14:08:23,839 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_005, events=1000, windows=32
+2026-09-23 14:08:23,840 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_006.csv
+2026-09-23 14:08:23,870 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_006, events=1000, windows=32
+2026-09-23 14:08:23,871 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_007.csv
+2026-09-23 14:08:23,903 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_007, events=1000, windows=32
+2026-09-23 14:08:23,903 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_008.csv
+2026-09-23 14:08:23,935 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_008, events=1000, windows=32
+2026-09-23 14:08:23,935 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_009.csv
+2026-09-23 14:08:23,967 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_009, events=1000, windows=32
+2026-09-23 14:08:23,968 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_010.csv
+2026-09-23 14:08:24,013 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_010, events=1000, windows=32
+2026-09-23 14:08:24,013 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_011.csv
+2026-09-23 14:08:24,046 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_011, events=1000, windows=32
+2026-09-23 14:08:24,047 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_012.csv
+2026-09-23 14:08:24,091 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_012, events=1000, windows=32
+2026-09-23 14:08:24,092 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_013.csv
+2026-09-23 14:08:24,120 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_013, events=1000, windows=32
+2026-09-23 14:08:24,121 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_014.csv
+2026-09-23 14:08:24,149 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_014, events=1000, windows=32
+2026-09-23 14:08:24,150 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_015.csv
+2026-09-23 14:08:24,182 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_015, events=1000, windows=32
+2026-09-23 14:08:24,183 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_016.csv
+2026-09-23 14:08:24,215 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_016, events=1000, windows=32
+2026-09-23 14:08:24,216 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_017.csv
+2026-09-23 14:08:24,255 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_017, events=1000, windows=32
+2026-09-23 14:08:24,256 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_018.csv
+2026-09-23 14:08:24,289 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_018, events=1000, windows=32
+2026-09-23 14:08:24,290 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_019.csv
+2026-09-23 14:08:24,322 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_019, events=1000, windows=32
+2026-09-23 14:08:24,322 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_020.csv
+2026-09-23 14:08:24,355 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_020, events=1000, windows=32
+2026-09-23 14:08:24,356 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_021.csv
+2026-09-23 14:08:24,393 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_021, events=1000, windows=32
+2026-09-23 14:08:24,393 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_022.csv
+2026-09-23 14:08:24,422 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_022, events=1000, windows=32
+2026-09-23 14:08:24,423 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_023.csv
+2026-09-23 14:08:24,450 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_023, events=1000, windows=32
+2026-09-23 14:08:24,450 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_024.csv
+2026-09-23 14:08:24,481 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_024, events=1000, windows=32
+2026-09-23 14:08:24,482 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_025.csv
+2026-09-23 14:08:24,514 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_025, events=1000, windows=32
+2026-09-23 14:08:24,514 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_026.csv
+2026-09-23 14:08:24,544 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_026, events=1000, windows=32
+2026-09-23 14:08:24,545 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_027.csv
+2026-09-23 14:08:24,574 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_027, events=1000, windows=32
+2026-09-23 14:08:24,574 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_028.csv
+2026-09-23 14:08:24,604 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_028, events=1000, windows=32
+2026-09-23 14:08:24,605 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_genuine_029.csv
+2026-09-23 14:08:24,645 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=genuine_029, events=1000, windows=32
+2026-09-23 14:08:24,645 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_000.csv
+2026-09-23 14:08:24,685 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_000, events=1000, windows=32
+2026-09-23 14:08:24,686 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_001.csv
+2026-09-23 14:08:24,723 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_001, events=1000, windows=32
+2026-09-23 14:08:24,724 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_002.csv
+2026-09-23 14:08:24,783 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_002, events=1000, windows=32
+2026-09-23 14:08:24,784 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_003.csv
+2026-09-23 14:08:24,827 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_003, events=1000, windows=32
+2026-09-23 14:08:24,828 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_004.csv
+2026-09-23 14:08:24,866 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_004, events=1000, windows=32
+2026-09-23 14:08:24,867 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_005.csv
+2026-09-23 14:08:24,918 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_005, events=1000, windows=32
+2026-09-23 14:08:24,919 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_006.csv
+2026-09-23 14:08:24,962 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_006, events=1000, windows=32
+2026-09-23 14:08:24,962 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_007.csv
+2026-09-23 14:08:25,002 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_007, events=1000, windows=32
+2026-09-23 14:08:25,003 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_008.csv
+2026-09-23 14:08:25,046 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_008, events=1000, windows=32
+2026-09-23 14:08:25,046 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_009.csv
+2026-09-23 14:08:25,084 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_009, events=1000, windows=32
+2026-09-23 14:08:25,085 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_010.csv
+2026-09-23 14:08:25,125 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_010, events=1000, windows=32
+2026-09-23 14:08:25,126 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_011.csv
+2026-09-23 14:08:25,166 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_011, events=1000, windows=32
+2026-09-23 14:08:25,166 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_012.csv
+2026-09-23 14:08:25,204 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_012, events=1000, windows=32
+2026-09-23 14:08:25,205 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_013.csv
+2026-09-23 14:08:25,245 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_013, events=1000, windows=32
+2026-09-23 14:08:25,245 | src.features.keystroke_features | INFO    | Loading raw keystroke log: data/raw\keystroke_imposter_014.csv
+2026-09-23 14:08:25,285 | src.features.keystroke_features | INFO    | Keystroke features extracted — session=imposter_014, events=1000, windows=32
+2026-09-23 14:08:25,286 | src.features.keystroke_features | INFO    | Keystroke feature extraction complete — 45 sessions processed.
+2026-09-23 14:08:25,978 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:25,978 | __main__             | INFO    | STAGE: Model Training
+2026-09-23 14:08:25,978 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:25,979 | src.models.train_mouse | INFO    | Training mouse LSTM-AE on device=cpu
+2026-09-23 14:08:26,290 | src.models.train_mouse | INFO    | Fitted and saved mouse scaler to models_checkpoints\mouse_scaler.pkl
+2026-09-23 14:08:27,901 | src.models.train_mouse | INFO    | Mouse AE  epoch   1/50 — train_loss=0.998187  val_loss=0.905763
+2026-09-23 14:08:32,379 | src.models.train_mouse | INFO    | Mouse AE  epoch  10/50 — train_loss=0.896625  val_loss=0.771305
+2026-09-23 14:08:37,494 | src.models.train_mouse | INFO    | Mouse AE  epoch  20/50 — train_loss=0.896178  val_loss=0.768854
+2026-09-23 14:08:42,556 | src.models.train_mouse | INFO    | Mouse AE  epoch  30/50 — train_loss=0.894786  val_loss=0.768660
+2026-09-23 14:08:47,608 | src.models.train_mouse | INFO    | Mouse AE  epoch  40/50 — train_loss=0.899109  val_loss=0.770052
+2026-09-23 14:08:52,909 | src.models.train_mouse | INFO    | Mouse AE  epoch  50/50 — train_loss=0.892631  val_loss=0.765437
+2026-09-23 14:08:52,939 | src.models.train_mouse | INFO    | Mouse threshold (p95) = 1.045333
+2026-09-23 14:08:52,954 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\mouse_lstm_ae.pt
+2026-09-23 14:08:52,957 | src.models.train_keystroke | INFO    | Training keystroke LSTM-AE on device=cpu
+2026-09-23 14:08:53,263 | src.models.train_keystroke | INFO    | Keystroke AE  epoch   1/50 — train_loss=2.973552  val_loss=2.905539
+2026-09-23 14:08:54,129 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  10/50 — train_loss=0.205222  val_loss=0.162594
+2026-09-23 14:08:55,145 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  20/50 — train_loss=0.068368  val_loss=0.068650
+2026-09-23 14:08:56,123 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  30/50 — train_loss=0.062645  val_loss=0.061990
+2026-09-23 14:08:57,098 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  40/50 — train_loss=0.058955  val_loss=0.058124
+2026-09-23 14:08:58,047 | src.models.train_keystroke | INFO    | Keystroke AE  epoch  50/50 — train_loss=0.056531  val_loss=0.055623
+2026-09-23 14:08:58,052 | src.models.train_keystroke | INFO    | Keystroke threshold (p95) = 0.088916
+2026-09-23 14:08:58,054 | src.models.lstm_ae   | INFO    | Checkpoint saved → models_checkpoints\keystroke_lstm_ae.pt
+2026-09-23 14:08:58,207 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:58,207 | __main__             | INFO    | STAGE: Fusion
+2026-09-23 14:08:58,208 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:58,220 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-23 14:08:58,229 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-23 14:08:58,234 | __main__             | INFO    | Saved 9 imposter sessions for fusion training.
+2026-09-23 14:08:59,230 | src.fusion.fuse      | INFO    | Fusion RF trained — n_estimators=100, samples=447
+2026-09-23 14:08:59,232 | src.fusion.fuse      | INFO    | Fusion model saved → models_checkpoints\fusion_rf.pkl
+2026-09-23 14:08:59,676 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:59,677 | __main__             | INFO    | STAGE: Evaluation
+2026-09-23 14:08:59,677 | __main__             | INFO    | ============================================================
+2026-09-23 14:08:59,677 | src.evaluation.evaluate | INFO    | === Mouse-only evaluation ===
+2026-09-23 14:08:59,680 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\mouse_lstm_ae.pt
+2026-09-23 14:09:00,130 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_mouse.png
+2026-09-23 14:09:00,130 | src.evaluation.evaluate | INFO    | === Keystroke-only evaluation ===
+2026-09-23 14:09:00,133 | src.models.lstm_ae   | INFO    | Checkpoint loaded ← models_checkpoints\keystroke_lstm_ae.pt
+2026-09-23 14:09:00,558 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_keystroke.png
+2026-09-23 14:09:00,558 | src.evaluation.evaluate | INFO    | === Fused model evaluation ===
+2026-09-23 14:09:00,574 | src.fusion.fuse      | INFO    | Fusion model loaded ← models_checkpoints\fusion_rf.pkl
+2026-09-23 14:09:00,963 | src.evaluation.evaluate | INFO    | ROC curve saved → results\roc_fused.png
+2026-09-23 14:09:00,963 | src.evaluation.evaluate | INFO    | Evaluation results:
+--------------------------------------------------------
+Model                     FAR      FRR      EER      AUC
+--------------------------------------------------------
+Mouse-only           0.0008   0.0597   0.0250   0.9940
+Keystroke-only       0.4271   0.0781   0.1344   0.9054
+Fused (RF)           0.0111   0.0000   0.0120   0.9999
+--------------------------------------------------------
+2026-09-23 14:09:00,964 | src.evaluation.evaluate | INFO    | Results table saved → results\evaluation_results.txt
+2026-09-23 14:09:00,967 | __main__             | INFO    | Pipeline complete.
+2026-09-23 14:09:03,416 | __main__             | INFO    | Behavioral Guard pipeline starting — stage=all
+2026-09-23 14:09:03,417 | __main__             | INFO    | ============================================================
+2026-09-23 14:09:03,417 | __main__             | INFO    | STAGE: Synthetic Data Generation
+2026-09-23 14:09:03,417 | __main__             | INFO    | ============================================================

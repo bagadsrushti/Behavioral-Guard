@@ -7,6 +7,7 @@ ROC curve plots to /results/.
 
 import logging
 import os
+import pickle
 from typing import Tuple
 
 import matplotlib
@@ -157,6 +158,13 @@ def run_evaluation(cfg: dict | None = None) -> dict:
     mouse_manifest = os.path.join(processed_dir, "mouse_manifest.csv")
     X_m, y_m = _load_test_data(mouse_manifest, eval_cfg)
 
+    mouse_scaler_path = os.path.join(ckpt_dir, "mouse_scaler.pkl")
+    if os.path.exists(mouse_scaler_path) and X_m.shape[0] > 0:
+        with open(mouse_scaler_path, "rb") as f:
+            mouse_scaler = pickle.load(f)
+        shape = X_m.shape
+        X_m = mouse_scaler.transform(X_m.reshape(-1, shape[-1])).reshape(shape)
+
     if X_m.shape[0] > 0:
         m_res = _evaluate_single_modality(mouse_model, mouse_threshold, X_m, y_m, device)
         all_results["Mouse-only"] = {k: m_res[k] for k in ("FAR", "FRR", "EER", "AUC")}
@@ -210,13 +218,25 @@ def run_evaluation(cfg: dict | None = None) -> dict:
         m_train_end = max(1, int(n_m * (eval_cfg["train_ratio"] + eval_cfg["val_ratio"])))
         k_train_end = max(1, int(n_k * (eval_cfg["train_ratio"] + eval_cfg["val_ratio"])))
 
+        # Load fusion training imposter sessions to exclude them
+        import json
+        imp_sessions_file = os.path.join(processed_dir, "fusion_train_imp_sessions.json")
+        if os.path.exists(imp_sessions_file):
+            with open(imp_sessions_file, "r") as f:
+                train_imp_sessions = json.load(f)
+        else:
+            train_imp_sessions = []
+            
+        test_mouse_imp = mouse_mf[(mouse_mf["label"] == "imposter") & (~mouse_mf["session_id"].isin(train_imp_sessions))]
+        test_ks_imp = ks_mf[(ks_mf["label"] == "imposter") & (~ks_mf["session_id"].isin(train_imp_sessions))]
+
         test_mouse = pd.concat([
             mouse_mf[mouse_mf["label"] == "genuine"].iloc[m_train_end:],
-            mouse_mf[mouse_mf["label"] == "imposter"],
+            test_mouse_imp,
         ])
         test_ks = pd.concat([
             ks_mf[ks_mf["label"] == "genuine"].iloc[k_train_end:],
-            ks_mf[ks_mf["label"] == "imposter"],
+            test_ks_imp,
         ])
 
         X_fused, y_fused, _ = build_meta_features(
