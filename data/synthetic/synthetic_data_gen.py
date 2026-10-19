@@ -82,13 +82,26 @@ def _generate_mouse_session(
     return rows
 
 
-def generate_mouse_data(cfg: dict) -> None:
-    """Write synthetic mouse CSVs to data/raw/."""
+def generate_mouse_data(cfg: dict, force: bool = False) -> None:
+    """Write synthetic mouse CSVs to data/raw/.
+
+    Safeguard: Refuses to overwrite existing files unless force=True.
+    """
     syn = cfg["synthetic"]
     raw_dir = cfg["paths"]["raw_data_dir"]
     os.makedirs(raw_dir, exist_ok=True)
+
+    existing = [f for f in os.listdir(raw_dir) if f.startswith("mouse_") and f.endswith(".csv")]
+    if existing and not force:
+        raise FileExistsError(
+            f"[SAFEGUARD] Raw mouse data already exists in '{raw_dir}' ({len(existing)} files found). "
+            "Aborted synthetic data generation to prevent overwriting existing data. "
+            "Pass force=True or --force to overwrite."
+        )
+
     rng = np.random.default_rng(syn["random_seed"])
 
+    log.info("[SYNTHETIC DATA] Generating synthetic mouse sessions (development/testing only)...")
     for i in range(syn["num_genuine_sessions"]):
         sid = f"genuine_{i:03d}"
         rows = _generate_mouse_session(
@@ -104,7 +117,7 @@ def generate_mouse_data(cfg: dict) -> None:
         _write_csv(os.path.join(raw_dir, f"mouse_{sid}.csv"), MOUSE_COLUMNS, rows)
 
     total = syn["num_genuine_sessions"] + syn["num_imposter_sessions"]
-    log.info("Generated %d synthetic mouse sessions → %s", total, raw_dir)
+    log.info("[SYNTHETIC DATA] Generated %d synthetic mouse sessions → %s", total, raw_dir)
 
 
 # ---------------------------------------------------------------------------
@@ -161,13 +174,26 @@ def _generate_keystroke_session(
     return rows
 
 
-def generate_keystroke_data(cfg: dict) -> None:
-    """Write synthetic keystroke CSVs to data/raw/."""
+def generate_keystroke_data(cfg: dict, force: bool = False) -> None:
+    """Write synthetic keystroke CSVs to data/raw/.
+
+    Safeguard: Refuses to overwrite existing files unless force=True.
+    """
     syn = cfg["synthetic"]
     raw_dir = cfg["paths"]["raw_data_dir"]
     os.makedirs(raw_dir, exist_ok=True)
+
+    existing = [f for f in os.listdir(raw_dir) if f.startswith("keystroke_") and f.endswith(".csv")]
+    if existing and not force:
+        raise FileExistsError(
+            f"[SAFEGUARD] Raw keystroke data already exists in '{raw_dir}' ({len(existing)} files found). "
+            "Aborted synthetic data generation to prevent overwriting existing data. "
+            "Pass force=True or --force to overwrite."
+        )
+
     rng = np.random.default_rng(syn["random_seed"] + 1)
 
+    log.info("[SYNTHETIC DATA] Generating synthetic keystroke sessions (development/testing only)...")
     for i in range(syn["num_genuine_sessions"]):
         sid = f"genuine_{i:03d}"
         rows = _generate_keystroke_session(
@@ -191,7 +217,7 @@ def generate_keystroke_data(cfg: dict) -> None:
         )
 
     total = syn["num_genuine_sessions"] + syn["num_imposter_sessions"]
-    log.info("Generated %d synthetic keystroke sessions → %s", total, raw_dir)
+    log.info("[SYNTHETIC DATA] Generated %d synthetic keystroke sessions → %s", total, raw_dir)
 
 
 # ---------------------------------------------------------------------------
@@ -205,13 +231,17 @@ def _write_csv(path: str, columns: list[str], rows: list[list]) -> None:
         writer.writerows(rows)
 
 
-def generate_all(cfg: dict | None = None) -> None:
-    """Generate all synthetic data (mouse + keystroke)."""
+def generate_all(cfg: dict | None = None, force: bool = False) -> None:
+    """Generate all synthetic data (mouse + keystroke).
+
+    Safeguard: Skips or aborts if raw data already exists unless force=True.
+    """
     if cfg is None:
         cfg = load_config()
-    generate_mouse_data(cfg)
-    generate_keystroke_data(cfg)
-    log.info("All synthetic data generation complete.")
+    log.info("[SYNTHETIC DATA] Starting synthetic data generation pipeline (force=%s)...", force)
+    generate_mouse_data(cfg, force=force)
+    generate_keystroke_data(cfg, force=force)
+    log.info("[SYNTHETIC DATA] All synthetic data generation complete.")
 
 
 # ---------------------------------------------------------------------------
@@ -219,10 +249,15 @@ def generate_all(cfg: dict | None = None) -> None:
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Generate synthetic behavioural data.")
+    parser = argparse.ArgumentParser(description="Generate synthetic behavioural data (development/testing only).")
     parser.add_argument("--config", default=None, help="Path to config.yaml")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force overwrite if raw data files already exist in data/raw/",
+    )
     args = parser.parse_args()
 
     cfg = load_config(args.config)
     setup_logging(cfg)
-    generate_all(cfg)
+    generate_all(cfg, force=args.force)

@@ -23,5 +23,12 @@ python -m src.logging.keystroke_logger --session_id <id> --label genuine --outpu
 *   Ensure their sessions are clearly labeled using `--label imposter`.
 *   **IMPORTANT:** Explicit consent must be obtained from anyone whose behavior is logged on your device.
 
-## 4. Note on Synthetic Data
-The synthetic data generator (`main.py --stage generate`) exists **only for pipeline smoke-testing and development**. Its data is easily separable by design. Synthetic results must **never** be reported as actual evaluation results in the final publication or patent application.
+## 4. Keystroke Privacy Guarantee
+*   The keystroke logger does **NOT** log or store actual typed characters, letters, numbers, or passwords.
+*   Keys are mapped in real time to coarse functional categories: `"letter"`, `"digit"`, `"space"`, `"backspace"`, `"enter"`, `"tab"`, `"modifier"`, `"punctuation"`, and `"other"`.
+*   Only the event timestamp, the key category, and the event type (`key_down` / `key_up`) are persisted.
+*   This ensures that even when recording real typing sessions on private devices, no sensitive text, passwords, or personal messages are ever captured.
+
+## 5. Note on Synthetic Data
+The synthetic data generator (`main.py --stage generate`) exists **only for pipeline smoke-testing and development**. Its data is easily separable by design. Synthetic results must **never** be reported as actual evaluation results in the final publication or patent application. By default, existing raw data will never be overwritten unless `--force` is explicitly provided.
+

@@ -35,14 +35,32 @@ VALID_STAGES = {"all", "generate", "features", "train", "fuse", "evaluate"}
 # Stage runners
 # ---------------------------------------------------------------------------
 
-def stage_generate(cfg: dict) -> None:
-    """Stage 1: Generate synthetic data."""
+def stage_generate(cfg: dict, force: bool = False) -> None:
+    """Stage 1: Generate synthetic data (development/testing only).
+
+    Safeguard: If raw CSV data already exists in the configured raw_data_dir,
+    generation is skipped to prevent overwriting existing data unless force=True.
+    """
     from data.synthetic.synthetic_data_gen import generate_all
 
     log.info("=" * 60)
-    log.info("STAGE: Synthetic Data Generation")
+    log.info("STAGE: Synthetic Data Generation [SYNTHETIC / DEVELOPMENT ONLY]")
     log.info("=" * 60)
-    generate_all(cfg)
+
+    raw_dir = cfg["paths"]["raw_data_dir"]
+    if os.path.isdir(raw_dir):
+        existing_csvs = [f for f in os.listdir(raw_dir) if f.endswith(".csv")]
+        if existing_csvs and not force:
+            log.warning(
+                "[SAFEGUARD] Raw data directory '%s' already contains %d CSV files. "
+                "Skipping synthetic data generation to preserve existing data. "
+                "Use --force to regenerate and overwrite.",
+                raw_dir,
+                len(existing_csvs),
+            )
+            return
+
+    generate_all(cfg, force=force)
 
 
 def stage_features(cfg: dict) -> None:
@@ -180,18 +198,23 @@ def main() -> None:
         choices=sorted(VALID_STAGES),
         help="Run a specific pipeline stage (default: all)",
     )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Force overwrite of existing raw datasets during synthetic data generation",
+    )
     args = parser.parse_args()
 
     cfg = load_config(args.config)
     setup_logging(cfg)
 
-    log.info("Behavioral Guard pipeline starting — stage=%s", args.stage)
+    log.info("Behavioral Guard pipeline starting — stage=%s, force=%s", args.stage, args.force)
 
     stage = args.stage
 
     try:
         if stage in ("all", "generate"):
-            stage_generate(cfg)
+            stage_generate(cfg, force=args.force)
         if stage in ("all", "features"):
             stage_features(cfg)
         if stage in ("all", "train"):

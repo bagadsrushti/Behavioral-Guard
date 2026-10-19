@@ -73,40 +73,51 @@ pip install -r requirements.txt
 
 ## How to Run
 
-### Full Pipeline (smoke test on synthetic data)
+### Safe Execution & Safeguards
+
+> [!IMPORTANT]
+> **Data Overwrite Safeguard:** By default, running `python main.py` or `python main.py --stage generate` will **never** overwrite existing raw data in `data/raw/`. If existing CSVs are detected, generation is automatically skipped. To explicitly regenerate synthetic data and overwrite existing files, pass the `--force` flag.
+
+> [!NOTE]
+> **Keystroke Privacy Guarantee:** The keystroke logger records only event timing and coarse key categories (`letter`, `digit`, `space`, `backspace`, `enter`, `tab`, `modifier`, `punctuation`, `other`). It **never** logs or persists actual typed characters or passwords.
+
+### Running Pipeline Stages Individually
 
 ```bash
+# 1. Generate synthetic data (skipped if data/raw already has files; use --force to overwrite)
+python main.py --stage generate
+python main.py --stage generate --force
+
+# 2. Extract features from raw CSVs into windowed .npy arrays (safe, non-destructive to raw data)
+python main.py --stage features
+
+# 3. Train LSTM-AE models on genuine sessions
+python main.py --stage train
+
+# 4. Build fusion meta-features and train Random Forest classifier
+python main.py --stage fuse
+
+# 5. Evaluate models and produce ROC plots in results/
+python main.py --stage evaluate
+
+# Run all stages end-to-end (skips generation if data/raw exists)
 python main.py
 ```
 
-This runs all stages sequentially: generate synthetic data → extract features → train models → build fusion → evaluate. Results are saved to `results/`.
-
-### Individual Stages
+### Running Safety & Regression Tests
 
 ```bash
-# Generate synthetic data only
-python main.py --stage generate
-
-# Extract features from raw data
-python main.py --stage features
-
-# Train both LSTM-AE models
-python main.py --stage train
-
-# Build fusion meta-features and train RF
-python main.py --stage fuse
-
-# Run evaluation and produce ROC plots
-python main.py --stage evaluate
+# Run the Phase 0 safety and baseline test suite
+python -m unittest tests/test_phase0_safety.py -v
 ```
 
-### Live Data Collection
+### Live Data Collection (Privacy-Preserving)
 
 ```bash
 # Record mouse events (Ctrl+C to stop)
 python -m src.logging.mouse_logger --session_id s01 --label genuine
 
-# Record keystroke events (Ctrl+C to stop)
+# Record keystroke events — records key categories only, no plaintext (Ctrl+C to stop)
 python -m src.logging.keystroke_logger --session_id s01 --label genuine
 ```
 

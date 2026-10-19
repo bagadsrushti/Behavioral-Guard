@@ -1,7 +1,13 @@
 """
 keystroke_logger.py — Background keystroke-event capture with simple start/stop CLI.
 
-Captures: timestamp, key_identity, event_type (key_down / key_up).
+PRIVACY GUARANTEE:
+    This logger NEVER records the actual typed character. Instead, each key
+    event is mapped to a *category* (e.g. "letter", "digit", "backspace").
+    The downstream ML pipeline only needs hold-time, flight-time, and a
+    backspace flag — so character identity is neither needed nor stored.
+
+Captures: timestamp, key_category, event_type (key_down / key_up).
 Output is an append-only CSV tagged with session_id and label.
 
 Usage:
@@ -27,10 +33,37 @@ COLUMNS = ["timestamp", "key", "event_type", "session_id", "label"]
 
 
 def _key_name(key) -> str:
-    """Normalise a pynput key object to a readable string."""
+    """Categorise a pynput key object without recording typed characters.
+
+    Privacy Guarantee:
+        Never returns actual characters, letters, or digits.
+        Returns coarse categories: 'letter', 'digit', 'space', 'backspace',
+        'enter', 'tab', 'modifier', 'punctuation', or 'other'.
+    """
     if hasattr(key, "char") and key.char is not None:
-        return key.char
-    return str(key).replace("Key.", "")
+        c = key.char
+        if c.isalpha():
+            return "letter"
+        elif c.isdigit():
+            return "digit"
+        elif c.isspace():
+            return "space"
+        else:
+            return "punctuation"
+
+    # Special keys (Key enum or KeyCode without char)
+    key_str = str(key).replace("Key.", "").lower()
+    if key_str in ("backspace", "delete"):
+        return "backspace"
+    elif key_str in ("space",):
+        return "space"
+    elif key_str in ("enter",):
+        return "enter"
+    elif key_str in ("tab",):
+        return "tab"
+    elif any(mod in key_str for mod in ("shift", "ctrl", "alt", "cmd", "meta")):
+        return "modifier"
+    return "other"
 
 
 class KeystrokeLogger:

@@ -1,2 +1,64 @@
+# Byte-compiled / optimized / DLL files
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets, credentials & environment files
+.env
+.env.*
+*.pem
+*.key
+*.cert
+secrets/
+
+# Sensitive raw behavioral data collected from real users
+# (Protect privacy: never commit real user biometrics to git)
+data/real/raw/
+data/real/processed/
+*.keylog
+
+# Logs & temporary files
+*.log
+tmp/
+temp/
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/

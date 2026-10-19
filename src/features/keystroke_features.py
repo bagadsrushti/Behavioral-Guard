@@ -153,6 +153,9 @@ def extract_keystroke_features(
     log.info("Loading raw keystroke log: %s", raw_csv_path)
     df = pd.read_csv(raw_csv_path)
 
+    if "key_category" in df.columns and "key" not in df.columns:
+        df["key"] = df["key_category"]
+
     required = {"timestamp", "key", "event_type"}
     if not required.issubset(df.columns):
         raise ValueError(
